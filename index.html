@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Animation</title>
+  <link rel="stylesheet" href="https://use.typekit.net/nyg3ydh.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+  <script src="rellax.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  <script src="gsap.min.js"></script>
+  <script src="animation.gsap.js"></script>
+
+</head>
+<body>
+  <section class="animation-section first-section">
+    <video src="Teaser-1.mp4" autoplay muted></video>
+  </section>
+  <section class="animation-section banner-section">
+    <div class="rellax" data-rellax-speed="1">
+      <h1 class="main-title noto-serif-regular">Time Machine Watch Winders</h1>
+      <h2 class="main-title noto-serif-italic">Evolution of Revolution</h2>
+    </div>
+  </section>
+  <div class="single-break" id="single-break"></div>
+  <section class="animation-section single-winder-section">
+    <div class="winder-wrapper">
+      <div class="winder" id="main-winder">
+        <div class="winder-light"></div>
+        <div class="winder-stand"></div>
+        <div class="winder-winder"></div>
+        <div class="winder-center"></div>
+      </div>
+    </div>
+
+    <p class="extra-info-paragraph" id="extra-info-paragraph">The guiding principle of the design process for the Time Machine watch winder was humble admiration of the watch makers' craftmanship.</p>
+  </section>
+  <div class="start-parallax-winder-section"></div>
+  <div class="start-parallax-winder-stop-section"></div>
+  <div class="start-second-info"></div>
+  <div class="start-winder-stand-remove"></div>
+  <section class="section-second-info">
+    <div class="rellax-second-info">
+      <p class="section-second-info-paragraph">We understand that the timepiece deserves a proper pedestal which will keep it functioning even when one is not wearing it. After so much time and effort was invested in crafting the mechanical masterpiece, it deserves a presentation that it is worthy of.</p>
+    </div>
+  </section>
+  <section class="animation-section section-stick">
+    <div class="start-minimizing-stick-section"></div>
+    <div class="stand-without-top-one-wrapper">
+      <div class="stand-without-top-one">
+        <div class="top-one-empty"></div>
+      </div>
+    </div>
+  </section>
+  <div class="add-empty-winder-to-stand-section"></div>
+  <div class="remove-top-stand-section"></div>
+  <div class="display-products-section"></div>
+
+  <section class="products-slider-section">
+    <div class="products-slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
+      <img src="slider/Double_Front.png">
+      <img src="slider/Stand_Front.png">
+      <img src="slider/Single_Front.png">
+      <img src="slider/Triple_Front.png">
+      <img src="slider/Wall_Front.png">
+    </div>
+    <div class="products-navigation"></div>
+  </section>
+
+  <section class="animation-section empty-section">
+    <p class="empty-section-paragraph noto-serif-regular">The most precise way to keep your Timepiece collection ticking.</p>
+  </section>
+
+  <section class="animation-section app-mockup-section">
+    <div class="app-mockup"></div>
+
+    <div class="app-mockup-text-section app-mockup-text-section--first detect-viewport">
+      <div class="app-mockup-text-section__title noto-serif-regular">Manage your watch collection.</div>
+      <div class="app-mockup-text-section__text noto-serif-regular">Sed mollis venenatis nisl, sed consectetur enim lobortis sit amet. In condimentum tortor ut faucibus posuere. Phasellus egestas nibh quam.</div>
+    </div>
+    <div class="app-mockup-text-section app-mockup-text-section--second detect-viewport">
+      <div class="app-mockup-text-section__title noto-serif-regular">Set winding cycles.</div>
+      <div class="app-mockup-text-section__text noto-serif-regular">Sed mollis venenatis nisl, sed consectetur enim lobortis sit amet. In condimentum tortor ut faucibus posuere. Phasellus egestas nibh quam.</div>
+    </div>
+    <div class="app-mockup-text-section app-mockup-text-section--third detect-viewport">
+      <div class="app-mockup-text-section__title noto-serif-regular">Stack your winders collection.</div>
+      <div class="app-mockup-text-section__text noto-serif-regular">Sed mollis venenatis nisl, sed consectetur enim lobortis sit amet. In condimentum tortor ut faucibus posuere. Phasellus egestas nibh quam.</div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script src="effects.js"></script>
+
+  <script>
+    $('.products-slider').slick({
+      autoplay: false,
+      dots: true,
+    });
+  </script>
+</body>
+</html>
