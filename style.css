@@ -111,7 +111,7 @@ body, html {
 
 .single-winder-section {
   background: #000;
-  height: 50vh;
+  height: 135vh;
   padding-top: 200px;
   z-index: 20;
 }
@@ -210,7 +210,7 @@ body, html {
   color: #FFF;
   width: 670px;
   position: absolute;
-  top: 25vh;
+  top: 55vh;
   left: 10vw;
   opacity: 0;
   transition: opacity 500ms ease-in;
@@ -619,11 +619,11 @@ body, html {
 }
 
 .start-parallax-winder-section {
-  transform: translateY(-174px);
+  transform: translateY(-350px);
 }
 
 .start-parallax-winder-stop-section {
-  transform: translateY(350px);
+  transform: translateY(150px);
 }
 
 .start-second-info {
