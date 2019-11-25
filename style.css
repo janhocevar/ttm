@@ -45,7 +45,7 @@ body, html {
 
 .first-section {
   background: #000;
-  height: 100vh;
+  height: 948px;
 }
 
 .first-section video {
@@ -111,7 +111,7 @@ body, html {
 
 .single-winder-section {
   background: #000;
-  height: 135vh;
+  height: 1280px;
   padding-top: 200px;
   z-index: 20;
 }
@@ -182,7 +182,7 @@ body, html {
   text-align: center;
   background: #000;
   color: #FFF;
-  height: 30vh;
+  height: 284px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,7 +210,7 @@ body, html {
   color: #FFF;
   width: 670px;
   position: absolute;
-  top: 55vh;
+  top: 521px;
   left: 10vw;
   opacity: 0;
   transition: opacity 500ms ease-in;
@@ -222,7 +222,7 @@ body, html {
 
 .section-second-info {
   background: #FFF;
-  height: 100vh;
+  height: 948px;
   z-index: 10;
   padding-top: 250px;
 }
@@ -245,7 +245,7 @@ body, html {
 
 .section-stick {
   background: #FFF;
-  height: 120vh;
+  height: 1138px;
   opacity: 1;
   padding-top: 1500px;
 }
@@ -257,10 +257,10 @@ body, html {
 
 .products-slider-section {
   background: #FFF;
-  transform: translateY(-110vh);
+  transform: translateY(-1043px);
   transition: opacity 250ms ease-in;
   padding: 0 50px;
-  height: 90vh;
+  height: 853px;
   margin-top: 689px;
   opacity: 0;
 }
@@ -365,14 +365,10 @@ body, html {
 }
 
 @media screen and (max-width: 1280px) {
-  .single-winder-section {
-    padding-top: 250px;
-  }
-
-  .section-second-info-paragraph,
-  .extra-info-paragraph {
+  .section-second-info-paragraph {
     font-size: 24px;
     line-height: 38px;
+    left: 7vh;
   }
 
   .app-mockup {
