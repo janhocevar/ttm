@@ -245,9 +245,9 @@ body, html {
 
 .section-stick {
   background: #FFF;
-  height: 1138px;
+  height: 7300px;
   opacity: 1;
-  padding-top: 1500px;
+  padding-top: 1690px;
 }
 
 .section-stick--hidden .stand-without-top-one {
@@ -598,18 +598,92 @@ body, html {
   transform: translateY(1000px);
 }
 
-.start-minimizing-stick-section {
-
+.start-winders-slider-animation {
+  transform: translateY(2700px);
 }
 
 .remove-top-stand-section {
-  transform: translateY(-600px);
+  transform: translateY(2200px);
 }
 
-.add-empty-winder-to-stand-section {
-  transform: translateY(-500px);
-}
-
-.display-products-section {
+/* .display-products-section {
   transform: translateY(-100px);
+} */
+
+.slider-descriptions {
+  top: 1020px;
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  z-index: 100;
+  width: 300px;
+  height: 460px;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.slider-descriptions--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-descriptions .slider__title {
+  font-size: 46px;
+  font-weight: bold;
+  opacity: 0;
+}
+
+.slider__title-line {
+  width: 0%;
+  height: 2px;
+  background: rgba(0, 0, 0, .8);
+  margin-top: 5px;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.slider-slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: none;
+  align-items: center;
+}
+
+.slider-content {
+  width: 100%;
+}
+
+.slider__body {
+  opacity: 0;
+  color: rgba(0, 0, 0, .5);
+}
+
+.slider__images {
+  position: absolute;
+  width: 500px;
+  height: 460px;
+  top: 0;
+  left: -500px;
+  display: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 100ms ease-in;
+}
+
+.slider__images--visible {
+  display: block;
+}
+
+.slide-visible--2 .slider__images { background-image: url('./slider/Wall_Front.png'); }
+.slide-visible--3 .slider__images { background-image: url('./slider/Triple_Front.png'); }
+.slide-visible--4 .slider__images { background-image: url('./slider/Double_Front.png'); }
+.slide-visible--5 .slider__images { background-image: url('./slider/Single_Front.png'); }
+
+.slide-visible--1 .slider__1 { display: flex; }
+.slide-visible--2 .slider__2 { display: flex; }
+.slide-visible--3 .slider__3 { display: flex; }
+.slide-visible--4 .slider__4 { display: flex; }
+.slide-visible--5 .slider__5 { display: flex; }
