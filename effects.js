@@ -19,13 +19,13 @@ var controller = new ScrollMagic.Controller();
                 .addTo(controller);
 
   var lightOn = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 250})
-                .setClassToggle('.winder-light', 'winder-light--visible')
+                .setClassToggle('#main-winder .winder-light', 'winder-light--visible')
                 
                 .addTo(controller);
 
   var winderCenterTween = new TimelineMax()
                 .add([
-                  TweenMax.fromTo('.winder-center', 5, { rotation: 0 }, { rotation: 180, ease: Linear.easeNone })
+                  TweenMax.fromTo('#main-winder .winder-center', 5, { rotation: 0 }, { rotation: 180, ease: Linear.easeNone })
                 ])
 
   var winderCenterAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 3440})
@@ -60,7 +60,7 @@ var controller = new ScrollMagic.Controller();
 
   var standTween = new TimelineMax()
     .add([
-      TweenMax.fromTo('.winder-stand', 2, { scale: 1, z: 0, opacity: 1 }, { scale: .95, z: -50, opacity: 0, ease: Linear.easeNone })
+      TweenMax.fromTo('#main-winder .winder-stand', 2, { scale: 1, z: 0, opacity: 1 }, { scale: .95, z: -50, opacity: 0, ease: Linear.easeNone })
     ]);
 
   var standAnimation = new ScrollMagic.Scene({triggerElement: '.start-winder-stand-remove', duration: 100})
@@ -90,395 +90,299 @@ var controller = new ScrollMagic.Controller();
 
   var winderSliderTweenIn = new TimelineMax()
     .add([ TweenMax.fromTo('.stand-without-top-one', 1, { x: 0 }, { x: -150, ease: Linear.easeNone }) ]);
-  var winderSliderTweenOut = new TimelineMax()
-    .add([ TweenMax.fromTo('.stand-without-top-one', 1, { opacity: 1, x: -150 }, { opacity: 0, x: -140, ease: Linear.easeNone }) ]);
 
-  var winderSliderFirstSectionIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 150, offset: 100})
+  var winderSliderFirstSectionIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 150 })
     .setTween(winderSliderTweenIn)
-    
     .addTo(controller);
 
-  var winderSliderFirstSectionRemove = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 50, offset: 960})
-    .setTween(winderSliderTweenOut)
-    
-    .addTo(controller);
-
-  var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 10500})
+  var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 11000})
     .setPin('.slider-descriptions')
     
     .addTo(controller);
 
-  var sliderDescriptionsClasses = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 4900, offset: 5608})
+  var sliderDescriptionsClasses = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 9000, offset: 5500})
     .setClassToggle('.slider-descriptions', 'slider-descriptions--visible')
-    
-    .addTo(controller);
-
-  var sliderAnimationDistance = 600;
-
-  var sliderTitleInTween = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__1 .slider__title', 1, { x: -20, opacity: 0 }, { x: 0, opacity: 1, ease: Linear.easeNone }) ]);
-  var sliderTitleOutTween = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__1 .slider__title', 1, { x: 0, opacity: 1 }, { x: 20, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderTitleLineInTween = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__1 .slider__title-line', 1, { x: -20, opacity: 0, width: 0 }, { opacity: 1, width: 300, x: 0, ease: Linear.easeNone }) ]);
-  var sliderTitleLineOutTween = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__1 .slider__title-line', 1, { opacity: 1, x: 0 }, { x: 10, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderBodyInTween = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__1 .slider__body', 1, { y: -20, opacity: 0 }, { opacity: 1, y: 0, ease: Linear.easeNone }) ]);
-  var sliderBodyOutTween = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__1 .slider__body', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
-
-  /** SLIDE ANIMATIONS */
-  var slideImageBGChange = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 1000, offset: 0})
-    .setClassToggle('.slider-descriptions', 'slide-visible--1')
-    
-    .addTo(controller)
-
-  var slider1TitleIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 230})
-    .setTween(sliderTitleInTween)
-    
-    .addTo(controller);
-
-  var slider1TitleLineIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 250})
-    .setTween(sliderTitleLineInTween)
-    
-    .addTo(controller);
-
-  var slider1BodyIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 270})
-    .setTween(sliderBodyInTween)
-    
-    .addTo(controller);
-
-  var sliderParallaxIn = new ScrollMagic.Scene({triggerElement: ".start-winders-slider-animation", duration: sliderAnimationDistance + 50, offset: 320})
-    .setTween('.slider__1 .slider-content', {y: "-20%", ease: Linear.easeNone})
-    
-    .addTo(controller);
-
-  var slider1TitleOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (230 + sliderAnimationDistance)})
-    .setTween(sliderTitleOutTween)
-    
-    .addTo(controller);
-
-  var slider1TitleLineOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (250 + sliderAnimationDistance)})
-    .setTween(sliderTitleLineOutTween)
-    
-    .addTo(controller);
-
-  var slider1BodyOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (270 + sliderAnimationDistance)})
-    .setTween(sliderBodyOutTween)
-    
+    // .addIndicators({name: 'toggle descriptions'})
     .addTo(controller);
     
-  var sliderImagesClassToggle = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', offset: 1060})
-    .setClassToggle('.slider__images', 'slider__images--visible')
-    
+  var firstSlideAnimationTween = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__1 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone }))
+
+  var firstSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 5500, duration: 800 })
+    .setTween(firstSlideAnimationTween)
+    // .addIndicators({name: 'slide #1'})
+    .addTo(controller);
+
+  var winderSliderTweenOut = new TimelineMax()
+    .add([ TweenMax.fromTo('.stand-without-top-one', { opacity: 1 }, { opacity: 0, x: -200 }) ]);
+
+  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6300, duration: 80 })
+    .setTween(winderSliderTweenOut)
+    // .addIndicators({name: 'slide #1 out'})
+    .addTo(controller);
+
+  var firstSlideAnimationTweenOut = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__1 .slider-content', { opacity: 1, y: '-10%' }, { opacity: 0, zIndex: 0, y: '-20%', ease: Linear.easeNone }))
+  
+  var firstSlideAnimationTextOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6300, duration: 80 })
+    .setTween(firstSlideAnimationTweenOut)
+    // .addIndicators({name: 'slide #1 text out'})
     .addTo(controller);
 
   /**
-   * SLIDE 2 START
+   * SLIDE 2
    */
-  var sliderImageIn2 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { x: -20, opacity: 0 }, { opacity: 1, x: 0, ease: Linear.easeNone }) ]);
-  var sliderImageOut2 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
+  var secondSlideBodyIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__2 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone }))
 
-  var slide2ImageIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 1060})
-    .setTween(sliderImageIn2)
-    
+  var secondSlideSimageIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__2 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0 }));
+
+  var secondSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6500, duration: 800 })
+    .setTween(secondSlideBodyIn)
+    // .addIndicators({name: 'slide #2'})
     .addTo(controller);
 
-  var slide2ImageOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 2000})
-    .setTween(sliderImageOut2)
-    
+  var secondSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6500, duration: 300 })
+    .setTween(secondSlideSimageIn)
+    // .addIndicators({name: 'slide #2 image in'})
     .addTo(controller);
 
-  var slide2ImageBGChange = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 1000, offset: 1100})
-    .setClassToggle('.slider-descriptions', 'slide-visible--2')
-    
-    .addTo(controller);
-
-  var sliderTitleInTween2 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__2 .slider__title', 1, { x: -20, opacity: 0 }, { x: 0, opacity: 1, ease: Linear.easeNone }) ]);
-  var sliderTitleOutTween2 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__2 .slider__title', 1, { x: 0, opacity: 1 }, { x: 20, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderTitleLineInTween2 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__2 .slider__title-line', 1, { x: -20, opacity: 0, width: 0 }, { opacity: 1, width: 300, x: 0, ease: Linear.easeNone }) ]);
-  var sliderTitleLineOutTween2 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__2 .slider__title-line', 1, { opacity: 1, x: 0 }, { x: 10, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderBodyInTween2 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__2 .slider__body', 1, { y: -20, opacity: 0 }, { opacity: 1, y: 0, ease: Linear.easeNone }) ]);
-  var sliderBodyOutTween2 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__2 .slider__body', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
-
-  /** SLIDE ANIMATIONS */
-  var slider1TitleIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 1120})
-    .setTween(sliderTitleInTween2)
-    
-    .addTo(controller);
-
-  var slider1TitleLineIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 1140})
-    .setTween(sliderTitleLineInTween2)
-    
-    .addTo(controller);
-
-  var slider1BodyIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 1160})
-    .setTween(sliderBodyInTween2)
-    
-    .addTo(controller);
-
-  var sliderParallaxIn2 = new ScrollMagic.Scene({triggerElement: ".start-winders-slider-animation", duration: sliderAnimationDistance + 50, offset: 1260})
-    .setTween('.slider__2 .slider-content', {y: "-20%", ease: Linear.easeNone})
-    
-    .addTo(controller);
-
-  var slider2TitleOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (1260 + sliderAnimationDistance)})
-    .setTween(sliderTitleOutTween2)
-    
-    .addTo(controller);
-
-  var slider2TitleLineOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (1280 + sliderAnimationDistance)})
-    .setTween(sliderTitleLineOutTween2)
-    
-    .addTo(controller);
-
-  var slider2BodyOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (1300 + sliderAnimationDistance)})
-    .setTween(sliderBodyOutTween2)
-    
+  var secondSlideSimageOut = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__2', { opacity: 1 }, { opacity: 0 }));
+  
+  var secondSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7300, duration: 200 })
+    .setTween(secondSlideSimageOut)
+    // .addIndicators({name: 'slide #2 out'})
     .addTo(controller);
 
   /**
-   * SLIDE 2 END
+   * SLIDE 3
    */
+  var thirdSlideBodyIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__3 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone }))
 
-   /**
-   * SLIDE 3 START
-   */
-  var sliderImageIn3 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { x: -20, opacity: 0 }, { opacity: 1, x: 0, ease: Linear.easeNone }) ]);
-  var sliderImageOut3 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
+  var thirdSlideSimageIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__3 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0 }));
 
-  var slide3ImageIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 2060})
-    .setTween(sliderImageIn3)
-    
+  var thirdSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7500, duration: 800 })
+    .setTween(thirdSlideBodyIn)
+    // .addIndicators({name: 'slide #3'})
     .addTo(controller);
 
-  var slide3ImageOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 3000})
-    .setTween(sliderImageOut3)
-    
+  var thirdSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7500, duration: 300 })
+    .setTween(thirdSlideSimageIn)
+    // .addIndicators({name: 'slide #3 image in'})
     .addTo(controller);
 
-  var slide3ImageBGChange = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 1000, offset: 2059})
-    .setClassToggle('.slider-descriptions', 'slide-visible--3')
-    
-    .addTo(controller);
-
-  var sliderTitleInTween3 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__3 .slider__title', 1, { x: -20, opacity: 0 }, { x: 0, opacity: 1, ease: Linear.easeNone }) ]);
-  var sliderTitleOutTween3 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__3 .slider__title', 1, { x: 0, opacity: 1 }, { x: 20, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderTitleLineInTween3 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__3 .slider__title-line', 1, { x: -20, opacity: 0, width: 0 }, { opacity: 1, width: 300, x: 0, ease: Linear.easeNone }) ]);
-  var sliderTitleLineOutTween3 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__3 .slider__title-line', 1, { opacity: 1, x: 0 }, { x: 10, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderBodyInTween3 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__3 .slider__body', 1, { y: -20, opacity: 0 }, { opacity: 1, y: 0, ease: Linear.easeNone }) ]);
-  var sliderBodyOutTween3 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__3 .slider__body', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
-
-  /** SLIDE ANIMATIONS */
-  var slider3TitleIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 2120})
-    .setTween(sliderTitleInTween3)
-    
-    .addTo(controller);
-
-  var slider3TitleLineIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 2140})
-    .setTween(sliderTitleLineInTween3)
-    
-    .addTo(controller);
-
-  var slider3BodyIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 2160})
-    .setTween(sliderBodyInTween3)
-    
-    .addTo(controller);
-
-  var sliderParallaxIn3 = new ScrollMagic.Scene({triggerElement: ".start-winders-slider-animation", duration: sliderAnimationDistance + 50, offset: 2260})
-    .setTween('.slider__3 .slider-content', {y: "-20%", ease: Linear.easeNone})
-    
-    .addTo(controller);
-
-  var slider3TitleOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (2260 + sliderAnimationDistance)})
-    .setTween(sliderTitleOutTween3)
-    
-    .addTo(controller);
-
-  var slider3TitleLineOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (2280 + sliderAnimationDistance)})
-    .setTween(sliderTitleLineOutTween3)
-    
-    .addTo(controller);
-
-  var slider3BodyOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (2300 + sliderAnimationDistance)})
-    .setTween(sliderBodyOutTween3)
-    
+  var thirdSlideSimageOut = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__3', { opacity: 1 }, { opacity: 0 }));
+  
+  var thirdSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8300, duration: 200 })
+    .setTween(thirdSlideSimageOut)
+    // .addIndicators({name: 'slide #3 out'})
     .addTo(controller);
 
   /**
-   * SLIDE 3 END
+   * SLIDE 4
    */
+  var fourthSlideBodyIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__4 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone }))
 
-   /**
-   * SLIDE 4 START
-   */
-  var sliderImageIn4 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { x: -20, opacity: 0 }, { opacity: 1, x: 0, ease: Linear.easeNone }) ]);
-  var sliderImageOut4 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
+  var fourthSlideSimageIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__4 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0 }));
 
-  var slide4ImageIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 3060})
-    .setTween(sliderImageIn4)
-    
+  var fourthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8500, duration: 800 })
+    .setTween(fourthSlideBodyIn)
+    // .addIndicators({name: 'slide #4'})
     .addTo(controller);
 
-  var slide4ImageOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 4000})
-    .setTween(sliderImageOut4)
-    
+  var fourthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8500, duration: 300 })
+    .setTween(fourthSlideSimageIn)
+    // .addIndicators({name: 'slide #4 image in'})
     .addTo(controller);
 
-  var slide4ImageBGChange = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 1000, offset: 3059})
-    .setClassToggle('.slider-descriptions', 'slide-visible--4')
-    
-    .addTo(controller);
-
-  var sliderTitleInTween4 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__4 .slider__title', 1, { x: -20, opacity: 0 }, { x: 0, opacity: 1, ease: Linear.easeNone }) ]);
-  var sliderTitleOutTween4 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__4 .slider__title', 1, { x: 0, opacity: 1 }, { x: 20, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderTitleLineInTween4 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__4 .slider__title-line', 1, { x: -20, opacity: 0, width: 0 }, { opacity: 1, width: 300, x: 0, ease: Linear.easeNone }) ]);
-  var sliderTitleLineOutTween4 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__4 .slider__title-line', 1, { opacity: 1, x: 0 }, { x: 10, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderBodyInTween4 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__4 .slider__body', 1, { y: -20, opacity: 0 }, { opacity: 1, y: 0, ease: Linear.easeNone }) ]);
-  var sliderBodyOutTween4 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__4 .slider__body', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
-
-  /** SLIDE ANIMATIONS */
-  var slider4TitleIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 3120})
-    .setTween(sliderTitleInTween4)
-    
-    .addTo(controller);
-
-  var slider4TitleLineIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 3140})
-    .setTween(sliderTitleLineInTween4)
-    
-    .addTo(controller);
-
-  var slider4BodyIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 3160})
-    .setTween(sliderBodyInTween4)
-    
-    .addTo(controller);
-
-  var sliderParallaxIn4 = new ScrollMagic.Scene({triggerElement: ".start-winders-slider-animation", duration: sliderAnimationDistance + 50, offset: 3260})
-    .setTween('.slider__4 .slider-content', {y: "-20%", ease: Linear.easeNone})
-    
-    .addTo(controller);
-
-  var slider4TitleOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (3260 + sliderAnimationDistance)})
-    .setTween(sliderTitleOutTween4)
-    
-    .addTo(controller);
-
-  var slider4TitleLineOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (3280 + sliderAnimationDistance)})
-    .setTween(sliderTitleLineOutTween4)
-    
-    .addTo(controller);
-
-  var slider4BodyOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (3300 + sliderAnimationDistance)})
-    .setTween(sliderBodyOutTween4)
-    
+  var fourthSlideSimageOut = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__4', { opacity: 1 }, { opacity: 0 }));
+  
+  var fourthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
+    .setTween(fourthSlideSimageOut)
+    // .addIndicators({name: 'slide #4 out'})
     .addTo(controller);
 
   /**
-   * SLIDE 4 END
+   * SLIDE 5
    */
+  var fifthSlideBodyIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__5 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone }))
 
+  var fifthSlideSimageIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__5 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0 }));
 
-   /**
-   * SLIDE 5 START
+  var fifthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9500, duration: 800 })
+    .setTween(fifthSlideBodyIn)
+    // .addIndicators({name: 'slide #5'})
+    .addTo(controller);
+
+  var fifthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9500, duration: 300 })
+    .setTween(fifthSlideSimageIn)
+    // .addIndicators({name: 'slide #5 image in'})
+    .addTo(controller);
+
+  var fifthSlideSimageOut = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__5 .slider-content', { opacity: 1 }, { opacity: 0 }));
+  
+  var fifthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10300, duration: 200 })
+    .setTween(fifthSlideSimageOut)
+    // .addIndicators({name: 'slide #5 out'})
+    .addTo(controller);
+
+  var lastWinder = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 3000, offset: 11000})
+    .setPin('.slider__5 .slider__image')
+    // .addIndicators({name: 'start center winder animation'})
+    .addTo(controller);
+    
+  var lastWinderCenterTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .slider__image', { x: 0 }, { x: 148 }));
+  var lastWinderCenterWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder', { scale: 0.5 }, { scale: 1 }));
+
+  var lastWinderCenter = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10600, duration: 400 })
+    .setTween(lastWinderCenterTween)
+    // .addIndicators({name: 'center last winder'})
+    .addTo(controller);
+
+  var lastWinderCenterScale = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10600, duration: 400 })
+    .setTween(lastWinderCenterWinderTween)
+    // .addIndicators({name: 'center last winder scale'})
+    .addTo(controller);
+
+  var lastWinderStandTween = new TimelineMax()
+    .add([
+      TweenMax.fromTo('.slider__5 .winder-stand', { scale: .97, z: -20, opacity: 0 }, { scale: 1, z: 0, opacity: 1, ease: Linear.easeNone })
+    ]);
+
+  var bottomDescription1 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 14000})
+    .setPin('.winder-bottom-description__1')
+    .addTo(controller);
+
+  var bottomDescription2 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 14000})
+    .setPin('.winder-bottom-description__2')
+    .addTo(controller);
+
+  var bottomDescription3 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 14000})
+    .setPin('.winder-bottom-description__3')
+    .addTo(controller);
+
+  var standAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 100, offset: 11100})
+      .setTween(lastWinderStandTween)
+      // .addIndicators({name: 'last winder stand'})
+      .addTo(controller);
+
+  /**
+   * DESCRIPTION 1
    */
-  var sliderImageIn5 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { x: -20, opacity: 0 }, { opacity: 1, x: 0, ease: Linear.easeNone }) ]);
-  var sliderImageOut5 = new TimelineMax().add([ TweenMax.fromTo('.slider__images', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
+  var bottomDescription1WinderWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: 1 }, { opacity: .3 }));
 
-  var slide5ImageIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 4060})
-    .setTween(sliderImageIn5)
-    
+  var bottomDescription1WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11450, duration: 100 })
+    .setTween(bottomDescription1WinderWinderTween)
+    // .addIndicators({name: 'bottom description #1 winder opacity'})
     .addTo(controller);
 
-  var slide5ImageOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 5000})
-    .setTween(sliderImageOut5)
-    
+  var bottomDescription1Tween = new TimelineMax()
+    .add(TweenMax.fromTo('.winder-bottom-description__1', { opacity: 0 }, { opacity: 1 }));
+  
+  var bottomDescription1 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11550, duration: 100 })
+    .setTween(bottomDescription1Tween)
+    // .addIndicators({name: 'bottom description #1'})
     .addTo(controller);
 
-  var slide5ImageBGChange = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 1000, offset: 4059})
-    .setClassToggle('.slider-descriptions', 'slide-visible--5')
-    
+  var bottomDescription1TweenOut = new TimelineMax()
+    .add(TweenMax.fromTo('.winder-bottom-description__1', { opacity: 1 }, { opacity: 0 }));
+  
+  var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11950, duration: 100 })
+    .setTween(bottomDescription1TweenOut)
+    // .addIndicators({name: 'bottom description #1 out'})
     .addTo(controller);
 
-  var sliderTitleInTween5 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__5 .slider__title', 1, { x: -20, opacity: 0 }, { x: 0, opacity: 1, ease: Linear.easeNone }) ]);
-  var sliderTitleOutTween5 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__5 .slider__title', 1, { x: 0, opacity: 1 }, { x: 20, opacity: 0, ease: Linear.easeNone }) ]);
+  var bottomDescription1WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1 }));
 
-  var sliderTitleLineInTween5 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__5 .slider__title-line', 1, { x: -20, opacity: 0, width: 0 }, { opacity: 1, width: 300, x: 0, ease: Linear.easeNone }) ]);
-  var sliderTitleLineOutTween5 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__5 .slider__title-line', 1, { opacity: 1, x: 0 }, { x: 10, opacity: 0, ease: Linear.easeNone }) ]);
-
-  var sliderBodyInTween5 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__5 .slider__body', 1, { y: -20, opacity: 0 }, { opacity: 1, y: 0, ease: Linear.easeNone }) ]);
-  var sliderBodyOutTween5 = new TimelineMax()
-    .add([ TweenMax.fromTo('.slider__5 .slider__body', 1, { opacity: 1, x: 0 }, { x: 5, opacity: 0, ease: Linear.easeNone }) ]);
-
-  /** SLIDE ANIMATIONS */
-  var slider5TitleIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 4120})
-    .setTween(sliderTitleInTween5)
-    
-    .addTo(controller);
-
-  var slider5TitleLineIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 4140})
-    .setTween(sliderTitleLineInTween5)
-    
-    .addTo(controller);
-
-  var slider5BodyIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: 4160})
-    .setTween(sliderBodyInTween5)
-    
-    .addTo(controller);
-
-  var sliderParallaxIn5 = new ScrollMagic.Scene({triggerElement: ".start-winders-slider-animation", duration: sliderAnimationDistance + 50, offset: 4260})
-    .setTween('.slider__5 .slider-content', {y: "-20%", ease: Linear.easeNone})
-    
-    .addTo(controller);
-
-  var slider5TitleOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (4260 + sliderAnimationDistance)})
-    .setTween(sliderTitleOutTween5)
-    
-    .addTo(controller);
-
-  var slider5TitleLineOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (4280 + sliderAnimationDistance)})
-    .setTween(sliderTitleLineOutTween5)
-    
-    .addTo(controller);
-
-  var slider5BodyOut = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 100, offset: (4300 + sliderAnimationDistance)})
-    .setTween(sliderBodyOutTween5)
-    
+  var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11950, duration: 100 })
+    .setTween(bottomDescription1WinderWinderTweenOut)
+    // .addIndicators({name: 'bottom description #1 winder opacity out'})
     .addTo(controller);
 
   /**
-   * SLIDE 5 END
+   * DESCRIPTION 2
    */
+  var bottomDescription2WinderWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: 1 }, { opacity: .3 }));
+
+  var bottomDescription2WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12200, duration: 100 })
+    .setTween(bottomDescription2WinderWinderTween)
+    // .addIndicators({name: 'bottom description #2 winder opacity'})
+    .addTo(controller);
+
+  var bottomDescription2Tween = new TimelineMax()
+    .add(TweenMax.fromTo('.winder-bottom-description__2', { opacity: 0 }, { opacity: 1 }));
+  
+  var bottomDescription2 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12300, duration: 100 })
+    .setTween(bottomDescription2Tween)
+    // .addIndicators({name: 'bottom description #2'})
+    .addTo(controller);
+
+  var bottomDescription2TweenOut = new TimelineMax()
+    .add(TweenMax.fromTo('.winder-bottom-description__2', { opacity: 1 }, { opacity: 0 }));
+  
+  var bottomDescription2Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12800, duration: 100 })
+    .setTween(bottomDescription2TweenOut)
+    // .addIndicators({name: 'bottom description #2 out'})
+    .addTo(controller);
+
+  var bottomDescription2WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: .3 }, { opacity: 1 }));
+
+  var bottomDescription2OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12800, duration: 100 })
+    .setTween(bottomDescription2WinderWinderTweenOut)
+    // .addIndicators({name: 'bottom description #2 winder opacity out'})
+    .addTo(controller);
+
+  /**
+   * DESCRIPTION 3
+   */
+  var bottomDescription3WinderWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: 1 }, { opacity: .3 }));
+
+  var bottomDescription3WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13000, duration: 100 })
+    .setTween(bottomDescription3WinderWinderTween)
+    // .addIndicators({name: 'bottom description #3 winder opacity'})
+    .addTo(controller);
+
+  var bottomDescription3Tween = new TimelineMax()
+    .add(TweenMax.fromTo('.winder-bottom-description__3', { opacity: 0 }, { opacity: 1 }));
+  
+  var bottomDescription3 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13100, duration: 100 })
+    .setTween(bottomDescription3Tween)
+    // .addIndicators({name: 'bottom description #3'})
+    .addTo(controller);
+
+  var bottomDescription3TweenOut = new TimelineMax()
+    .add(TweenMax.fromTo('.winder-bottom-description__3', { opacity: 1 }, { opacity: 0 }));
+  
+  var bottomDescription3Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13600, duration: 100 })
+    .setTween(bottomDescription3TweenOut)
+    // .addIndicators({name: 'bottom description #3 out'})
+    .addTo(controller);
+
+  var bottomDescription3WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1 }));
+
+  var bottomDescription3OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13600, duration: 100 })
+    .setTween(bottomDescription3WinderWinderTweenOut)
+    // .addIndicators({name: 'bottom description #3 winder opacity out'})
+    .addTo(controller);
+
+  var bottomWinderScaleUpTween = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { scale: 1 }, { scale: 5 }))
+    .add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: 1 }, { opacity: 0 }));
+
+  var bottomWinderScaleUp = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13800, duration: 500 })
+    .setTween(bottomWinderScaleUpTween)
+    // .addIndicators({name: 'winder scale up'})
+    .addTo(controller);
 
 })();

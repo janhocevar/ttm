@@ -136,7 +136,6 @@ body, html {
   background-size: contain;
   background-position: center;
   max-width: 100%;
-  transition: opacity 200ms ease-in;
   transform: scale(2);
   transform-origin: center;
   position: relative;
@@ -245,7 +244,7 @@ body, html {
 
 .section-stick {
   background: #FFF;
-  height: 7300px;
+  height: 11000px;
   opacity: 1;
   padding-top: 1690px;
 }
@@ -616,7 +615,7 @@ body, html {
   z-index: 100;
   left: 50%;
   z-index: 100;
-  width: 300px;
+  width: 400px;
   height: 460px;
   opacity: 0;
   visibility: hidden;
@@ -630,16 +629,23 @@ body, html {
 .slider-descriptions .slider__title {
   font-size: 46px;
   font-weight: bold;
-  opacity: 0;
+  line-height: 46px;
+  margin-bottom: 50px;
+}
+
+.slider__top-title {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 23px;
 }
 
 .slider__title-line {
-  width: 0%;
+  width: 100%;
   height: 2px;
   background: rgba(0, 0, 0, .8);
   margin-top: 5px;
   margin-bottom: 20px;
-  opacity: 0;
 }
 
 .slider-slide {
@@ -647,8 +653,11 @@ body, html {
   position: absolute;
   top: 0;
   height: 100%;
-  display: none;
   align-items: center;
+}
+
+.slider-slide .slider-content {
+  opacity: 0;
 }
 
 .slider-content {
@@ -656,34 +665,117 @@ body, html {
 }
 
 .slider__body {
-  opacity: 0;
   color: rgba(0, 0, 0, .5);
 }
 
-.slider__images {
+.slider__image {
   position: absolute;
   width: 500px;
   height: 460px;
   top: 0;
   left: -500px;
-  display: none;
+  opacity: 0;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   transition: background 100ms ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.slider__images--visible {
+.slider__2 .slider__image { background-image: url('./slider/Wall_Front.png'); }
+.slider__3 .slider__image { background-image: url('./slider/Triple_Front.png'); }
+.slider__4 .slider__image { background-image: url('./slider/Double_Front.png'); }
+.slider__5 .winder {
+  transform: scale(.5);
+}
+
+.slider__price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-top: 40px;
+}
+
+.slider__price-value {
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.slider__buttons {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+}
+
+.slider__button {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #000;
+  transition: background 70ms ease-in-out;
+}
+
+.slider__button:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, .1);
+  transition: background 70ms ease-in;
+}
+
+.winder-bottom-description {
+  position: absolute;
+  top: 1020px;
+  z-index: 100;
+  z-index: 100;
+  width: 400px;
+  opacity: 0;
+}
+
+.winder-bottom-description:after {
+  content: '';
+  height: 1px;
+  background: #000;
+  bottom: 10px;
   display: block;
+  width: 100%;
 }
 
-.slide-visible--2 .slider__images { background-image: url('./slider/Wall_Front.png'); }
-.slide-visible--3 .slider__images { background-image: url('./slider/Triple_Front.png'); }
-.slide-visible--4 .slider__images { background-image: url('./slider/Double_Front.png'); }
-.slide-visible--5 .slider__images { background-image: url('./slider/Single_Front.png'); }
+.winder-bottom-description__title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
 
-.slide-visible--1 .slider__1 { display: flex; }
-.slide-visible--2 .slider__2 { display: flex; }
-.slide-visible--3 .slider__3 { display: flex; }
-.slide-visible--4 .slider__4 { display: flex; }
-.slide-visible--5 .slider__5 { display: flex; }
+.winder-bottom-description__body {
+  font-size: 18px;
+}
+
+.winder-bottom-description__1 {
+  left: 50%;
+  transform: translate(-751px, 280px);
+}
+
+.winder-bottom-description__2 {
+  left: 50%;
+  transform: translate(320px, -50px);
+}
+
+.winder-bottom-description__2:after {
+  width: 148%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.winder-bottom-description__3 {
+  left: 50%;
+  transform: translate(-751px, 0);
+}
+
+.winder-bottom-description__3:after {
+  width: 157%;
+}
