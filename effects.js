@@ -1,7 +1,7 @@
 (function() {
   var controller = new ScrollMagic.Controller();
 
-  var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1125})
+  var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1090})
                 .setPin('#main-winder')
                 
                 .addTo(controller);
@@ -33,7 +33,7 @@
 
   var winderTween = new TimelineMax()
     .add([
-      TweenMax.fromTo('#main-winder', 2, { scale: 1.4 }, { scale: .9 })
+      TweenMax.fromTo('#main-winder', 2, { scale: 1.6 }, { scale: .9 })
     ])
   var startWinderParallax = new ScrollMagic.Scene({triggerElement: '.start-parallax-winder-section', duration: 500})
                             .setTween(winderTween)
@@ -61,7 +61,7 @@
       TweenMax.fromTo('#main-winder .winder-stand', 2, { scale: 1, z: 0, opacity: 1 }, { scale: .95, z: -50, opacity: 0, ease: Linear.easeNone })
     ]);
 
-  var standAnimation = new ScrollMagic.Scene({triggerElement: '.start-winder-stand-remove', duration: 100})
+  var standAnimation = new ScrollMagic.Scene({triggerElement: '.start-winder-stand-remove', duration: 300, offset: 100})
                         .setTween(standTween)
                         
                         .addTo(controller);
@@ -83,7 +83,6 @@
   
   var startWinderSlider = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 4000})
     .setPin('.stand-without-top-one')
-    
     .addTo(controller);
 
   var winderSliderTweenIn = new TimelineMax()
@@ -301,7 +300,7 @@
     // .addIndicators({name: 'bottom description #1 out'})
     .addTo(controller);
 
-  var bottomDescription1WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1 }));
+  var bottomDescription1WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: .3 }, { opacity: 1 }));
 
   var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11950, duration: 100 })
     .setTween(bottomDescription1WinderWinderTweenOut)
@@ -334,7 +333,7 @@
     // .addIndicators({name: 'bottom description #2 out'})
     .addTo(controller);
 
-  var bottomDescription2WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: .3 }, { opacity: 1 }));
+  var bottomDescription2WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1 }));
 
   var bottomDescription2OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12800, duration: 100 })
     .setTween(bottomDescription2WinderWinderTweenOut)
@@ -367,7 +366,7 @@
     // .addIndicators({name: 'bottom description #3 out'})
     .addTo(controller);
 
-  var bottomDescription3WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1, immediateRender: false }));
+  var bottomDescription3WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1, immediateRender: false }));
 
   var bottomDescription3OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13600, duration: 100 })
     .setTween(bottomDescription3WinderWinderTweenOut)
@@ -391,11 +390,10 @@
     // .addIndicators({name: 'winder scale up'})
     .addTo(controller);
 
-
   var fulhaberMotorSectionTween = new TimelineMax()
     .add(TweenMax.fromTo('.empty-section', { opacity: 0 }, { opacity: 1 }));
 
-  var fulhaberMotorSection = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 50, offset: 350})
+  var fulhaberMotorSection = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 50, offset: 550})
     .setTween(fulhaberMotorSectionTween)
     // .addIndicators({name: 'fulhaber motor fade in'})
     .addTo(controller);
@@ -410,28 +408,73 @@
     // .addIndicators({name: 'ful haber description'})
     .addTo(controller);
 
+  var appMockupFirstTextPin = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 370, offset: 650})
+    .setPin('.app-mockup-text-section--first')
+    // .addIndicators({name: 'stick first text'})
+    .addTo(controller);
+
   var appMockupFirstTextTween = new TimelineMax()
     .add(TweenMax.fromTo('.app-mockup-text-section--first', { opacity: 0 }, { opacity: 1 }));
   
-  var appMockupFirstText = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--first', duration: 100})
+  var appMockupFirstText = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--first', duration: 100, offset: 100})
     .setTween(appMockupFirstTextTween)
-    // .addIndicators({name: 'app mockup first section'})
+    // .addIndicators({name: 'first text visibility'})
     .addTo(controller);
 
-  var appMockupSecondTextTween = new TimelineMax()
+  var appMockupFirstTextTweenOut = new TimelineMax()
+    .add(TweenMax.fromTo('.app-mockup-text-section--first', { opacity: 1 }, { opacity: 0, immediateRender: false }));
+  
+  var appMockupFirstTextOut = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--first', duration: 100, offset: 350})
+    .setTween(appMockupFirstTextTweenOut)
+    // .addIndicators({name: 'first text visibility out'})
+    .addTo(controller);
+
+  /**
+   * second text
+   */
+  var appMockupFirstTextPin2 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 370, offset: 1320})
+      .setPin('.app-mockup-text-section--second')
+      // .addIndicators({name: 'stick second text'})
+      .addTo(controller);
+
+  var appMockupFirstTextTween2 = new TimelineMax()
     .add(TweenMax.fromTo('.app-mockup-text-section--second', { opacity: 0 }, { opacity: 1 }));
   
-  var appMockupSecondText = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--second', duration: 100})
-    .setTween(appMockupSecondTextTween)
-    // .addIndicators({name: 'app mockup second section'})
+  var appMockupFirstText2 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--second', duration: 100, offset: 150})
+    .setTween(appMockupFirstTextTween2)
+    // .addIndicators({name: 'second text visibility'})
     .addTo(controller);
 
-  var appMockupThirdTextTween = new TimelineMax()
+  var appMockupFirstTextTweenOut2 = new TimelineMax()
+    .add(TweenMax.fromTo('.app-mockup-text-section--second', { opacity: 1 }, { opacity: 0, immediateRender: false }));
+  
+  var appMockupFirstTextOut2 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--second', duration: 100, offset: 380})
+    .setTween(appMockupFirstTextTweenOut2)
+    // .addIndicators({name: 'second text visibility out'})
+    .addTo(controller);
+
+  /**
+   * second text
+   */
+  var appMockupFirstTextPin3 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 330, offset: 1900})
+      .setPin('.app-mockup-text-section--third')
+      // .addIndicators({name: 'stick third text'})
+      .addTo(controller);
+
+  var appMockupFirstTextTween3 = new TimelineMax()
     .add(TweenMax.fromTo('.app-mockup-text-section--third', { opacity: 0 }, { opacity: 1 }));
   
-  var appMockupThirdText = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--third', duration: 100})
-    .setTween(appMockupThirdTextTween)
-    // .addIndicators({name: 'app mockup third section'})
+  var appMockupFirstText3 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--third', duration: 100, offset: 150})
+    .setTween(appMockupFirstTextTween3)
+    // .addIndicators({name: 'third text visibility'})
+    .addTo(controller);
+
+  var appMockupFirstTextTweenOut3 = new TimelineMax()
+    .add(TweenMax.fromTo('.app-mockup-text-section--third', { opacity: 1 }, { opacity: 0, immediateRender: false }));
+  
+  var appMockupFirstTextOut3 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--third', duration: 100, offset: 330})
+    .setTween(appMockupFirstTextTweenOut3)
+    // .addIndicators({name: 'third text visibility out'})
     .addTo(controller);
 
 })();

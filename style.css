@@ -26,7 +26,7 @@ body, html {
   margin: 0 auto;
   perspective: 400px;
   perspective-origin: 50% 30%;
-  transform: scale(1.4);
+  transform: scale(1.6);
 }
 
 /* .background-section {
@@ -148,7 +148,7 @@ body, html {
 
 .top-one-empty {
   position: absolute;
-  top: -72px;
+  top: -90px;
   left: 50%;
   transform: translateX(-50%);
   background: url('./top-empty-flat.png');
@@ -271,12 +271,12 @@ body, html {
 .empty-section {
   height: 1896px;
   background: #000;
-  margin-top: -1900px;
+  margin-top: -2000px;
 }
 
 .app-mockup-section {
   background: #000;
-  height: 280vh;
+  height: 2854px;
   overflow: hidden;
 }
 
@@ -286,7 +286,7 @@ body, html {
   width: 1213px;
   height: 2048px;
   position: absolute;
-  top: 40vh;
+  top: 379px;
   right: -25vw;
   z-index: 20;
 }
@@ -787,4 +787,45 @@ body, html {
 .fulhaber-motor-image-description.in-viewport {
   transition: opacity 200ms ease-in;
   opacity: 1;
+}
+
+.specs-section {
+  background: #000;
+  /* height: 500px; */
+  color: #FFF;
+  padding: 300px 10vw 0;
+}
+
+.specs-section__title {
+  margin-top: 0;
+  font-size: 40px;
+  margin-bottom: 50px;
+  font-weight: normal;
+}
+
+.specs-section__list {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  margin: 0;
+}
+
+.specs-section__list dt,
+.specs-section__list dd {
+  border-bottom: 1px solid #FFF;
+  padding: 10px;
+}
+
+.specs-section__list dd {
+  margin-left: 0;
+  padding-left: 30px;
+}
+
+.specs-section__list dt {
+  text-align: right;
+  border-right: 1px solid #FFF;
+}
+
+.specs-section__list dt:last-of-type,
+.specs-section__list dd:last-of-type {
+  border-bottom: none;
 }
