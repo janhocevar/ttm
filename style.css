@@ -244,7 +244,7 @@ body, html {
 
 .section-stick {
   background: #FFF;
-  height: 11000px;
+  height: 12200px;
   opacity: 1;
   padding-top: 1690px;
 }
@@ -276,7 +276,7 @@ body, html {
 
 .app-mockup-section {
   background: #000;
-  height: 2854px;
+  height: 3554px;
   overflow: hidden;
 }
 
@@ -307,15 +307,15 @@ body, html {
 }
 
 .app-mockup-text-section--first {
-  top: 60vh;
+  top: 569px;
 }
 
 .app-mockup-text-section--second {
-  top: 130vh;
+  top: 1420px;
 }
 
 .app-mockup-text-section--third {
-  top: 190vh;
+  top: 2218px;
 }
 
 .app-mockup-text-section__title,
@@ -772,13 +772,13 @@ body, html {
   width: 600px;
   height: 275px;
   margin: 0 auto;
-  transform: translateY(1000px);
+  transform: translateY(1200px);
   z-index: 10;
 }
 
 .fulhaber-motor-image-description {
   width: 500px;
-  transform: translate(200px, 300px);
+  transform: translate(200px, 550px);
   margin: 0 auto;
   opacity: 0;
   transition: opacity 200ms ease-in-out;
@@ -828,4 +828,21 @@ body, html {
 .specs-section__list dt:last-of-type,
 .specs-section__list dd:last-of-type {
   border-bottom: none;
+}
+
+.slider__5 .winder-stand {
+  transform: scale(.97) translateZ(-20px);
+  opacity: 0;
+}
+
+.winder-watch {
+  background: url('./watch.png');
+  width: 440px;
+  height: 594px;
+  position: absolute;
+  top: -7px;
+  left: 110px;
+  z-index: 10;
+  transform: scale(0.5);
+  opacity: 0;
 }
