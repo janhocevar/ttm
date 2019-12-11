@@ -3,22 +3,23 @@
 
   var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1090})
                 .setPin('.main-winder')
-                
                 .addTo(controller);
 
-  var firstText = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 600, offset: 350})
+  var firstText = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 900, offset: 350})
                 .setClassToggle('.extra-info-paragraph', 'in-viewport')
-                
                 .addTo(controller);
 
-  var firstTextParallax = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 600, offset: 350})
-                .setTween('.extra-info-paragraph', {y: "80%", ease: Linear.easeNone})
-                
+  var firstTextPin = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 480, offset: 750})
+    .setPin('.extra-info-paragraph')
+    // .addIndicators({name: 'first text pin'})
+    .addTo(controller);
+
+  var firstTextParallax = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1000, offset: 350})
+                .setTween('.extra-info-paragraph', {y: "-50%", ease: Linear.easeNone})
                 .addTo(controller);
 
   var lightOn = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 250})
                 .setClassToggle('.main-winder .winder-light', 'winder-light--visible')
-                
                 .addTo(controller);
 
   var winderCenterTween = new TimelineMax()
@@ -44,15 +45,20 @@
                           .setPin('.main-winder')
                           
                           .addTo(controller);
+  
+  var secondTextPin = new ScrollMagic.Scene({triggerElement: '.start-second-info', duration: 680})
+    .setPin('.section-second-info-paragraph')
+    // .addIndicators({name: 'second text pin'})
+    .addTo(controller);
 
-  var secondInfoParagraph = new ScrollMagic.Scene({triggerElement: ".start-second-info", duration: 440})
+  var secondInfoParagraph = new ScrollMagic.Scene({triggerElement: ".start-second-info", duration: 640})
                           .setClassToggle('.section-second-info-paragraph', 'in-viewport')
-                          
+                          // .addIndicators({name: 'second text toggle'})
                           .addTo(controller);
 
-  var secondInfoParagraph = new ScrollMagic.Scene({triggerElement: ".start-second-info", duration: 550})
-                          .setTween('.section-second-info-paragraph', {y: "50%", ease: Linear.easeNone})
-                          
+  var secondInfoParagraph = new ScrollMagic.Scene({triggerElement: ".start-second-info", duration: 650})
+                          .setTween('.section-second-info-paragraph', {y: "-20%", ease: Linear.easeNone})
+                          // .addIndicators({name: 'second text scroll'})
                           .addTo(controller);
 
 
@@ -92,12 +98,11 @@
     .setTween(winderSliderTweenIn)
     .addTo(controller);
 
-  var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 11000})
+  var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 21000})
     .setPin('.slider-descriptions')
-    
     .addTo(controller);
 
-  var sliderDescriptionsClasses = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 10000, offset: 5500})
+  var sliderDescriptionsClasses = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 21000, offset: 5500})
     .setClassToggle('.slider-descriptions', 'slider-descriptions--visible')
     // .addIndicators({name: 'toggle descriptions'})
     .addTo(controller);
@@ -105,7 +110,7 @@
   var firstSlideAnimationTween = new TimelineMax()
     .add(TweenMax.fromTo('.slider__1 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone, immediateRender: false }))
 
-  var firstSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 5500, duration: 1200 })
+  var firstSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 5500, duration: 1800 })
     .setTween(firstSlideAnimationTween)
     // .addIndicators({name: 'slide #1'})
     .addTo(controller);
@@ -113,7 +118,7 @@
   var winderSliderTweenOut = new TimelineMax()
     .add([ TweenMax.fromTo('.stand-without-top-one', { opacity: 1 }, { opacity: 0, x: -200, immediateRender: false }) ]);
 
-  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6700, duration: 200 })
+  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7300, duration: 200 })
     .setTween(winderSliderTweenOut)
     // .addIndicators({name: 'slide #1 out'})
     .addTo(controller);
@@ -121,7 +126,7 @@
   var firstSlideAnimationTweenOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__1 .slider-content', { opacity: 1, y: '-10%' }, { opacity: 0, zIndex: 0, y: '-20%', ease: Linear.easeNone, immediateRender: false }))
   
-  var firstSlideAnimationTextOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6700, duration: 200 })
+  var firstSlideAnimationTextOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7300, duration: 200 })
     .setTween(firstSlideAnimationTweenOut)
     // .addIndicators({name: 'slide #1 text out'})
     .addTo(controller);
@@ -135,12 +140,12 @@
   var secondSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__2 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var secondSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6900, duration: 1200 })
+  var secondSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7500, duration: 1800 })
     .setTween(secondSlideBodyIn)
     // .addIndicators({name: 'slide #2'})
     .addTo(controller);
 
-  var secondSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 6900, duration: 300 })
+  var secondSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7500, duration: 300 })
     .setTween(secondSlideSimageIn)
     // .addIndicators({name: 'slide #2 image in'})
     .addTo(controller);
@@ -148,7 +153,7 @@
   var secondSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__2', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var secondSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7700, duration: 200 })
+  var secondSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
     .setTween(secondSlideSimageOut)
     // .addIndicators({name: 'slide #2 out'})
     .addTo(controller);
@@ -162,12 +167,12 @@
   var thirdSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__3 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var thirdSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7900, duration: 1200 })
+  var thirdSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9500, duration: 1800 })
     .setTween(thirdSlideBodyIn)
     // .addIndicators({name: 'slide #3'})
     .addTo(controller);
 
-  var thirdSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7900, duration: 300 })
+  var thirdSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9500, duration: 300 })
     .setTween(thirdSlideSimageIn)
     // .addIndicators({name: 'slide #3 image in'})
     .addTo(controller);
@@ -175,7 +180,7 @@
   var thirdSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__3', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var thirdSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8700, duration: 200 })
+  var thirdSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11300, duration: 200 })
     .setTween(thirdSlideSimageOut)
     // .addIndicators({name: 'slide #3 out'})
     .addTo(controller);
@@ -189,12 +194,12 @@
   var fourthSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__4 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var fourthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8900, duration: 1200 })
+  var fourthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11500, duration: 1800 })
     .setTween(fourthSlideBodyIn)
     // .addIndicators({name: 'slide #4'})
     .addTo(controller);
 
-  var fourthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8900, duration: 300 })
+  var fourthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11500, duration: 300 })
     .setTween(fourthSlideSimageIn)
     // .addIndicators({name: 'slide #4 image in'})
     .addTo(controller);
@@ -202,7 +207,7 @@
   var fourthSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__4', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var fourthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9700, duration: 200 })
+  var fourthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13300, duration: 200 })
     .setTween(fourthSlideSimageOut)
     // .addIndicators({name: 'slide #4 out'})
     .addTo(controller);
@@ -216,12 +221,12 @@
   var fifthSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__5 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var fifthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9900, duration: 1200 })
+  var fifthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500, duration: 1800 })
     .setTween(fifthSlideBodyIn)
     // .addIndicators({name: 'slide #5'})
     .addTo(controller);
 
-  var fifthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9900, duration: 300 })
+  var fifthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500, duration: 300 })
     .setTween(fifthSlideSimageIn)
     // .addIndicators({name: 'slide #5 image in'})
     .addTo(controller);
@@ -229,57 +234,57 @@
   var fifthSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__5 .slider-content', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var fifthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11000, duration: 200 })
+  var fifthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15300, duration: 200 })
     .setTween(fifthSlideSimageOut)
     // .addIndicators({name: 'slide #5 out'})
     .addTo(controller);
 
-  var lastWinder = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 4400, offset: 11000})
-    .setPin('.slider__5 .slider__image')
-    // .addIndicators({name: 'start center winder animation'})
-    .addTo(controller);
-    
+  // var lastWinder = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 4400, offset: 15500})
+  //   .setPin('.slider__5 .slider__image')
+  //   .addIndicators({name: 'center winder animation'})
+  //   .addTo(controller);
+
   var lastWinderCenterTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .slider__image', { x: 0 }, { x: 148, immediateRender: false }));
   var lastWinderCenterWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder', { scale: 0.5 }, { scale: 1, immediateRender: false }));
 
-  var lastWinderCenter = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11200, duration: 400 })
+  var lastWinderCenter = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15500, duration: 400 })
     .setTween(lastWinderCenterTween)
     // .addIndicators({name: 'center last winder'})
     .addTo(controller);
 
-  var lastWinderCenterScale = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11200, duration: 400 })
+  var lastWinderCenterScale = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15500, duration: 400 })
     .setTween(lastWinderCenterWinderTween)
     // .addIndicators({name: 'center last winder scale'})
     .addTo(controller);
 
-  var lastWinderStandTween = new TimelineMax()
-    .add([
-      TweenMax.fromTo('.slider__5 .winder-stand', { scale: .97, z: -20, opacity: 0 }, { scale: 1, z: 0, opacity: 1, ease: Linear.easeNone, immediateRender: false })
-    ]);
+  // var lastWinderStandTween = new TimelineMax()
+  //   .add([
+  //     TweenMax.fromTo('.slider__5 .winder-stand', { scale: .97, z: -20, opacity: 0 }, { scale: 1, z: 0, opacity: 1, ease: Linear.easeNone, immediateRender: false })
+  //   ]);
 
-  var bottomDescription1 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 15000})
+  var bottomDescription1 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 20000})
     .setPin('.winder-bottom-description__1')
     .addTo(controller);
 
-  var bottomDescription2 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 15000})
+  var bottomDescription2 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 20000})
     .setPin('.winder-bottom-description__2')
     .addTo(controller);
 
-  var bottomDescription3 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 15000})
+  var bottomDescription3 = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 20000})
     .setPin('.winder-bottom-description__3')
     .addTo(controller);
 
-  var standAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 100, offset: 11600})
-      .setTween(lastWinderStandTween)
-      // .addIndicators({name: 'last winder stand'})
-      .addTo(controller);
+  // var standAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 100, offset: 11600})
+  //     .setTween(lastWinderStandTween)
+  //     // .addIndicators({name: 'last winder stand'})
+  //     .addTo(controller);
 
   /**
    * DESCRIPTION 1
    */
   var bottomDescription1WinderWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: 1 }, { opacity: .3, immediateRender: false }));
 
-  var bottomDescription1WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11850, duration: 250 })
+  var bottomDescription1WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16000, duration: 250 })
     .setTween(bottomDescription1WinderWinderTween)
     // .addIndicators({name: 'bottom description #1 winder opacity'})
     .addTo(controller);
@@ -287,7 +292,7 @@
   var bottomDescription1Tween = new TimelineMax()
     .add(TweenMax.fromTo('.winder-bottom-description__1', { opacity: 0 }, { opacity: 1, immediateRender: false }));
   
-  var bottomDescription1 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11850, duration: 250 })
+  var bottomDescription1 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16000, duration: 250 })
     .setTween(bottomDescription1Tween)
     // .addIndicators({name: 'bottom description #1'})
     .addTo(controller);
@@ -295,14 +300,14 @@
   var bottomDescription1TweenOut = new TimelineMax()
     .add(TweenMax.fromTo('.winder-bottom-description__1', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12500, duration: 250 })
+  var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16750, duration: 250 })
     .setTween(bottomDescription1TweenOut)
     // .addIndicators({name: 'bottom description #1 out'})
     .addTo(controller);
 
   var bottomDescription1WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-center', { opacity: .3 }, { opacity: 1, immediateRender: false }));
 
-  var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12500, duration: 250 })
+  var bottomDescription1Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16750, duration: 250 })
     .setTween(bottomDescription1WinderWinderTweenOut)
     // .addIndicators({name: 'bottom description #1 winder opacity out'})
     .addTo(controller);
@@ -312,7 +317,7 @@
    */
   var bottomDescription2WinderWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: 1 }, { opacity: .3, immediateRender: false }));
 
-  var bottomDescription2WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12800, duration: 250 })
+  var bottomDescription2WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 17500, duration: 250 })
     .setTween(bottomDescription2WinderWinderTween)
     // .addIndicators({name: 'bottom description #2 winder opacity'})
     .addTo(controller);
@@ -320,7 +325,7 @@
   var bottomDescription2Tween = new TimelineMax()
     .add(TweenMax.fromTo('.winder-bottom-description__2', { opacity: 0 }, { opacity: 1, immediateRender: false }));
   
-  var bottomDescription2 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 12800, duration: 250 })
+  var bottomDescription2 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 17500, duration: 250 })
     .setTween(bottomDescription2Tween)
     // .addIndicators({name: 'bottom description #2'})
     .addTo(controller);
@@ -328,14 +333,14 @@
   var bottomDescription2TweenOut = new TimelineMax()
     .add(TweenMax.fromTo('.winder-bottom-description__2', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var bottomDescription2Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13450, duration: 250 })
+  var bottomDescription2Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18250, duration: 250 })
     .setTween(bottomDescription2TweenOut)
     // .addIndicators({name: 'bottom description #2 out'})
     .addTo(controller);
 
   var bottomDescription2WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1, immediateRender: false }));
 
-  var bottomDescription2OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13450, duration: 250 })
+  var bottomDescription2OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18250, duration: 250 })
     .setTween(bottomDescription2WinderWinderTweenOut)
     // .addIndicators({name: 'bottom description #2 winder opacity out'})
     .addTo(controller);
@@ -345,14 +350,14 @@
    */
   var bottomDescription3WinderWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: 1 }, { opacity: .3, immediateRender: false }));
 
-  var bottomDescription3WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13750, duration: 250 })
+  var bottomDescription3WinderWinder = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 19000, duration: 250 })
     .setTween(bottomDescription3WinderWinderTween)
     // .addIndicators({name: 'bottom description #3 winder opacity'})
     .addTo(controller);
 
   var bottomDescription3WinderWatchTween = new TimelineMax().add(TweenMax.fromTo('.winder-watch', { opacity: 0 }, { opacity: 1, immediateRender: false }));
 
-  var bottomDescription3WinderWatch = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13750, duration: 250})
+  var bottomDescription3WinderWatch = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 19000, duration: 250})
     .setTween(bottomDescription3WinderWatchTween)
     // .addIndicators({name: 'bottom description #3 watch in'})
     .addTo(controller);
@@ -360,7 +365,7 @@
   var bottomDescription3Tween = new TimelineMax()
     .add(TweenMax.fromTo('.winder-bottom-description__3', { opacity: 0 }, { opacity: 1, immediateRender: false }));
   
-  var bottomDescription3 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13750, duration: 250 })
+  var bottomDescription3 = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 19000, duration: 250 })
     .setTween(bottomDescription3Tween)
     // .addIndicators({name: 'bottom description #3'})
     .addTo(controller);
@@ -368,7 +373,7 @@
   var bottomDescription3TweenOut = new TimelineMax()
     .add(TweenMax.fromTo('.winder-bottom-description__3', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var bottomDescription3Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 14400, duration: 250 })
+  var bottomDescription3Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 19750, duration: 250 })
     .setTween(bottomDescription3TweenOut)
     // .addIndicators({name: 'bottom description #3 out'})
     .addTo(controller);
@@ -376,14 +381,22 @@
   var bottomDescription3WatchTweenOut = new TimelineMax()
     .add(TweenMax.fromTo('.winder-watch', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var bottomDescription3Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 14400, duration: 250 })
+  var bottomDescription3Out = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 19750, duration: 250 })
     .setTween(bottomDescription3WatchTweenOut)
     // .addIndicators({name: 'bottom description #3 watch out'})
     .addTo(controller);
 
+  var bottomWinderCenterTween = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__5 .winder-center', 5, { rotation: 0 }, { rotation: 90, ease: Linear.easeNone, immediateRender: false }));
+
+  var bottomWinderCenter = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 20000, duration: 750})
+    .setTween(bottomWinderCenterTween)
+    // .addIndicators({name: 'bottom rotate'})
+    .addTo(controller);
+
   var bottomDescription3WinderWinderTweenOut = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder-winder, .slider__5 .winder-stand', { opacity: .3 }, { opacity: 1, immediateRender: false }));
 
-  var bottomDescription3OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 14400, duration: 250 })
+  var bottomDescription3OutOpacity = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 19750, duration: 250 })
     .setTween(bottomDescription3WinderWinderTweenOut)
     // .addIndicators({name: 'bottom description #3 winder opacity out'})
     .addTo(controller);
@@ -395,12 +408,12 @@
   var bottomWinderStandFadeTween = new TimelineMax()
     .add(TweenMax.fromTo('.slider__5 .winder-stand', { opacity: 1 }, { opacity: 0, immediateRender: false }));
 
-  var bottomWinderStandFade = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15000, duration: 100 })
+  var bottomWinderStandFade = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 20500, duration: 100 })
     .setTween(bottomWinderStandFadeTween)
     // .addIndicators({name: 'winder fade in'})
     .addTo(controller);
 
-  var bottomWinderScaleUp = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15000, duration: 550 })
+  var bottomWinderScaleUp = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 20500, duration: 550 })
     .setTween(bottomWinderScaleUpTween)
     // .addIndicators({name: 'winder scale up'})
     .addTo(controller);
@@ -408,17 +421,22 @@
   var fulhaberMotorSectionTween = new TimelineMax()
     .add(TweenMax.fromTo('.empty-section', { opacity: 0 }, { opacity: 1 }));
 
-  var fulhaberMotorSection = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 50, offset: 750})
+  var fulhaberMotorSection = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 50, offset: 550})
     .setTween(fulhaberMotorSectionTween)
     // .addIndicators({name: 'fulhaber motor fade in'})
     .addTo(controller);
 
-  var lastWinder = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 500, offset: 1100})
+  var fulhaberMotorScroll = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 800, offset: 850})
+    .setTween('.fulhaber-motor-image-description-wrapper', {y: "80%", ease: Linear.easeNone})
+    // .addIndicators({name: 'fulhaber scroll'})
+    .addTo(controller);
+
+  var lastWinder = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 600, offset: 1100})
     .setPin('.fulhaber-motor-image')
     // .addIndicators({name: 'pin fulhaber-motor-image'})
     .addTo(controller);
 
-  var fulhaberDescription = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 500, offset: 1200})
+  var fulhaberDescription = new ScrollMagic.Scene({triggerElement: '.empty-section--fade-in', duration: 700, offset: 1000})
     .setClassToggle('.fulhaber-motor-image-description', 'in-viewport')
     // .addIndicators({name: 'ful haber description'})
     .addTo(controller);
@@ -426,6 +444,11 @@
   var mockupAppTween = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 3500, offset: 0})
     .setTween('.app-mockup', {y: "50%", ease: Linear.easeNone})
     // .addIndicators({name: 'mockup scroll'})
+    .addTo(controller);
+
+  var specsSection = new ScrollMagic.Scene({triggerElement: ".specs-section", duration: 1800, offset: 0})
+    .setTween('.specs-content', {y: "150%", ease: Linear.easeNone})
+    // .addIndicators({name: 'specs scroll'})
     .addTo(controller);
 
   /**
