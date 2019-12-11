@@ -92,7 +92,7 @@
     .addTo(controller);
 
   var winderSliderTweenIn = new TimelineMax()
-    .add([ TweenMax.fromTo('.stand-without-top-one', 1, { x: 0 }, { x: -150, ease: Linear.easeNone, immediateRender: false }) ]);
+    .add([ TweenMax.fromTo('.stand-without-top-one', 1, { x: 0 }, { x: -200, ease: Linear.easeNone, immediateRender: false }) ]);
 
   var winderSliderFirstSectionIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 150 })
     .setTween(winderSliderTweenIn)
@@ -244,7 +244,7 @@
   //   .addIndicators({name: 'center winder animation'})
   //   .addTo(controller);
 
-  var lastWinderCenterTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .slider__image', { x: 0 }, { x: 148, immediateRender: false }));
+  var lastWinderCenterTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .slider__image', { x: 0 }, { x: 200, immediateRender: false }));
   var lastWinderCenterWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder', { scale: 0.5 }, { scale: 1, immediateRender: false }));
 
   var lastWinderCenter = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15500, duration: 400 })
