@@ -29,6 +29,13 @@ body, html {
   transform: scale(1.6);
 }
 
+.slider__5 .winder {
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: -171px;
+}
+
 /* .background-section {
   background: url('./interior.jpg');
   background-size: cover;
@@ -62,6 +69,12 @@ body, html {
   z-index: 1;
   transform-style: preserve-3d;
   /* transition: transform 1000ms ease-in, opacity 1000ms 200ms ease-in; */
+}
+
+.slider__5 .winder-stand {
+  background: url('./single-winder/stacked/winder-stand.png');
+  width: 800px;
+  height: 800px;
 }
 
 .winder-stand--remove {
@@ -98,6 +111,14 @@ body, html {
   z-index: 2;
 }
 
+.slider__5 .winder-winder {
+  background: url('./single-winder/stacked/winder-base.png');
+  width: 800px;
+  height: 800px;
+  bottom: 0;
+  left: 0;
+}
+
 .winder-center {
   background: url('./winder-center.png') no-repeat;
   background-size: contain;
@@ -107,6 +128,14 @@ body, html {
   top: 129px;
   left: 160px;
   z-index: 3;
+}
+
+.slider__5 .winder-center {
+  background: url('./single-winder/stacked/winder-center.png');
+  width: 265px;
+  height: 265px;
+  top: 230px;
+  left: 277px;
 }
 
 .single-winder-section {
@@ -667,7 +696,11 @@ body, html {
 .slider__3 .slider__image { background-image: url('./slider/Triple_Front.png'); }
 .slider__4 .slider__image { background-image: url('./slider/Double_Front.png'); }
 .slider__5 .winder {
-  transform: scale(.5);
+  transform: scale(.575);
+}
+
+.slider__5 .winder {
+  opacity: 0;
 }
 
 .slider__price {
@@ -721,7 +754,7 @@ body, html {
   background: #000;
   bottom: 10px;
   display: block;
-  width: 100%;
+  width: 486px;
 }
 
 .winder-bottom-description__title,
@@ -751,7 +784,7 @@ body, html {
 }
 
 .winder-bottom-description__2:after {
-  width: 148%;
+  width: 627px;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -763,7 +796,7 @@ body, html {
 }
 
 .winder-bottom-description__3:after {
-  width: 157%;
+  width: 613px;
 }
 
 .fulhaber-motor-image {
@@ -845,9 +878,17 @@ body, html {
   width: 440px;
   height: 594px;
   position: absolute;
-  top: -7px;
-  left: 110px;
+  top: 59px;
+  left: 194px;
   z-index: 10;
-  transform: scale(0.5);
+  transform: scale(0.4);
   opacity: 0;
+}
+
+.hidden-images {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: -10000px;
 }

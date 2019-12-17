@@ -1,4 +1,45 @@
 (function() {
+
+  var singleWinderImagesStack = [
+    './single-winder/TTM-Mark-6.32.png',
+    './single-winder/TTM-Mark-6.33.png',
+    './single-winder/TTM-Mark-6.34.png',
+    './single-winder/TTM-Mark-6.35.png',
+    './single-winder/TTM-Mark-6.36.png',
+    './single-winder/TTM-Mark-6.1.png',
+    './single-winder/TTM-Mark-6.2.png',
+    './single-winder/TTM-Mark-6.3.png',
+    './single-winder/TTM-Mark-6.4.png',
+    './single-winder/TTM-Mark-6.5.png',
+    './single-winder/TTM-Mark-6.6.png',
+    './single-winder/TTM-Mark-6.7.png',
+    './single-winder/TTM-Mark-6.8.png',
+    './single-winder/TTM-Mark-6.9.png',
+    './single-winder/TTM-Mark-6.10.png',
+    './single-winder/TTM-Mark-6.11.png',
+    './single-winder/TTM-Mark-6.12.png',
+    './single-winder/TTM-Mark-6.13.png',
+    './single-winder/TTM-Mark-6.14.png',
+    './single-winder/TTM-Mark-6.15.png',
+    './single-winder/TTM-Mark-6.16.png',
+    './single-winder/TTM-Mark-6.17.png',
+    './single-winder/TTM-Mark-6.18.png',
+    './single-winder/TTM-Mark-6.19.png',
+    './single-winder/TTM-Mark-6.20.png',
+    './single-winder/TTM-Mark-6.21.png',
+    './single-winder/TTM-Mark-6.22.png',
+    './single-winder/TTM-Mark-6.23.png',
+    './single-winder/TTM-Mark-6.24.png',
+    './single-winder/TTM-Mark-6.25.png',
+    './single-winder/TTM-Mark-6.26.png',
+    './single-winder/TTM-Mark-6.27.png',
+    './single-winder/TTM-Mark-6.28.png',
+    './single-winder/TTM-Mark-6.29.png',
+    './single-winder/TTM-Mark-6.30.png',
+    './single-winder/TTM-Mark-6.31.png',
+    './single-winder/TTM-Mark-6.32.png',
+  ];
+
   var controller = new ScrollMagic.Controller();
 
   var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 2180})
@@ -219,14 +260,49 @@
    * SLIDE 5
    */
   var fifthSlideBodyIn = new TimelineMax()
-    .add(TweenMax.fromTo('.slider__5 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone, immediateRender: false }))
+    .add(TweenMax.fromTo('.slider__5 .slider-content', { zIndex: 0, opacity: 0 }, { opacity: 1, zIndex: 10, ease: Linear.easeNone, immediateRender: false }))
 
   var fifthSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__5 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var fifthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15500, duration: 1800 })
+  var fifthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15500, duration: 200 })
     .setTween(fifthSlideBodyIn)
     // .addIndicators({name: 'slide #5'})
+    .addTo(controller);
+
+  var singleWinder360RotationObj = { curImg: 0 };
+  var singleWinderRotationElement = document.querySelector('.single-winder-rotation');
+
+  var singleWinder360RotationTween = TweenMax.to(singleWinder360RotationObj, {
+    curImg: singleWinderImagesStack.length - 1,
+    roundProps: 'curImg',
+    repeat: 0,
+    immediateRender: true,
+    ease: Linear.easeNone,
+    onUpdate: function() {
+      singleWinderRotationElement.style.backgroundImage = 'url(' + singleWinderImagesStack[singleWinder360RotationObj.curImg] + ')';
+    }
+  })
+
+  var singleWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 15700})
+    .setTween(singleWinder360RotationTween)
+    // .addIndicators({name: '360 tween'})
+    .addTo(controller);
+
+  var fifthImageRealWinderFadeInTween = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__5 .winder', { opacity: 0 }, { opacity: 1, immediateRender: false }));
+
+  var fifthImageRealWinderFadeIn = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 50, offset: 17220})
+    .setTween(fifthImageRealWinderFadeInTween)
+    // .addIndicators({name: 'fifthImageRealWinderFadeIn'})
+    .addTo(controller);
+
+  var fifth360ImageFadeOutTween = new TimelineMax()
+    .add(TweenMax.fromTo('.single-winder-rotation', { opacity: 1 }, { opacity: 0, immediateRender: false }));
+
+  var fifth360ImageFadeOut = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 50, offset: 17320})
+    .setTween(fifth360ImageFadeOutTween)
+    // .addIndicators({name: 'fifth360ImageFadeOutTween'})
     .addTo(controller);
 
   var fifthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15500, duration: 300 })
@@ -247,8 +323,8 @@
   //   .addIndicators({name: 'center winder animation'})
   //   .addTo(controller);
 
-  var lastWinderCenterTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .slider__image', { x: 0 }, { x: 200, immediateRender: false }));
-  var lastWinderCenterWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder', { scale: 0.5 }, { scale: 1, immediateRender: false }));
+  var lastWinderCenterTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .slider__image', { x: 0 }, { x: 300, immediateRender: false }));
+  var lastWinderCenterWinderTween = new TimelineMax().add(TweenMax.fromTo('.slider__5 .winder', { scale: 0.575 }, { scale: 1, immediateRender: false }));
 
   var lastWinderCenter = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 17500, duration: 400 })
     .setTween(lastWinderCenterTween)
