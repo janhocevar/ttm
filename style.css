@@ -221,9 +221,9 @@ body, html {
 
 .section-second-info {
   background: #FFF;
-  height: 948px;
+  height: 2248px;
   z-index: 10;
-  padding-top: 250px;
+  padding-top: 100px;
 }
 
 .section-second-info-paragraph {
