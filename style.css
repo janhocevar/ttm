@@ -111,7 +111,7 @@ body, html {
 
 .single-winder-section {
   background: #000;
-  height: 1280px;
+  height: 2380px;
   padding-top: 200px;
   z-index: 20;
 }
@@ -209,7 +209,7 @@ body, html {
   color: #FFF;
   width: 670px;
   position: absolute;
-  top: 521px;
+  top: 150px;
   left: 10vw;
   opacity: 0;
   transition: opacity 500ms ease-in;
@@ -272,7 +272,7 @@ body, html {
 .empty-section {
   height: 1896px;
   background: #000;
-  margin-top: -2000px;
+  margin-top: -2200px;
 }
 
 .app-mockup-section {
