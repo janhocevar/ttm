@@ -1144,7 +1144,7 @@
 
   var winderSliderFirstSectionIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 150 })
     .setTween(winderSliderTweenIn)
-    .addIndicators({name: 'winderSliderFirstSectionIn'})
+    // .addIndicators({name: 'winderSliderFirstSectionIn'})
     .addTo(controller);
 
   var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 23000})
@@ -1170,7 +1170,7 @@
 
   var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7700, duration: 100 })
     .setTween(winderSliderTweenOut)
-    .addIndicators({name: 'stand-without-top-one out'})
+    // .addIndicators({name: 'stand-without-top-one out'})
     .addTo(controller);
 
   var firstSlideAnimationTweenOut = new TimelineMax()
@@ -1194,7 +1194,7 @@
   
   var firstSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
     .setTween(firstSlideSimageOut)
-    .addIndicators({name: 'slide #1 out'})
+    // .addIndicators({name: 'slide #1 out'})
     .addTo(controller);
 
   /**
@@ -1365,7 +1365,7 @@
 
   var standWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 7800})
     .setTween(standWinder360RotationTween)
-    .addIndicators({name: '360 tween stand'})
+    // .addIndicators({name: '360 tween stand'})
     .addTo(controller);
 
   var fifthImageRealWinderFadeInTween = new TimelineMax()
