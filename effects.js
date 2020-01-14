@@ -1140,11 +1140,11 @@
     .addTo(controller);
 
   var winderSliderTweenIn = new TimelineMax()
-    .add([ TweenMax.fromTo('.stand-without-top-one', 1, { x: 0 }, { x: -200, ease: Linear.easeNone, immediateRender: false }) ]);
+    .add([ TweenMax.fromTo('.stand-without-top-one', 1, { x: 0 }, { x: -320, ease: Linear.easeNone, immediateRender: false }) ]);
 
   var winderSliderFirstSectionIn = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 150 })
     .setTween(winderSliderTweenIn)
-    // .addIndicators({name: 'winderSliderFirstSectionIn'})
+    .addIndicators({name: 'winderSliderFirstSectionIn'})
     .addTo(controller);
 
   var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 23000})
@@ -1166,11 +1166,11 @@
     .addTo(controller);
 
   var winderSliderTweenOut = new TimelineMax()
-    .add([ TweenMax.fromTo('.stand-without-top-one', { opacity: 1 }, { opacity: 0, x: -200, immediateRender: false }) ]);
+    .add([ TweenMax.fromTo('.stand-without-top-one', { opacity: 1 }, { opacity: 0, x: -320, immediateRender: false }) ]);
 
-  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
+  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7700, duration: 100 })
     .setTween(winderSliderTweenOut)
-    // .addIndicators({name: 'slide #1 out'})
+    .addIndicators({name: 'stand-without-top-one out'})
     .addTo(controller);
 
   var firstSlideAnimationTweenOut = new TimelineMax()
@@ -1179,6 +1179,22 @@
   var firstSlideAnimationTextOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
     .setTween(firstSlideAnimationTweenOut)
     // .addIndicators({name: 'slide #1 text out'})
+    .addTo(controller);
+
+  var firstSlideSimageIn = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__1 .slider__image', { opacity: 0 }, { opacity: 1, immediateRender: false }));
+
+  var secondSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7800, duration: 50 })
+    .setTween(firstSlideSimageIn)
+    // .addIndicators({name: 'slide #1 image in'})
+    .addTo(controller);
+
+  var firstSlideSimageOut = new TimelineMax()
+    .add(TweenMax.fromTo('.slider__1', { opacity: 1 }, { opacity: 0, immediateRender: false }));
+  
+  var firstSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
+    .setTween(firstSlideSimageOut)
+    .addIndicators({name: 'slide #1 out'})
     .addTo(controller);
 
   /**
@@ -1318,19 +1334,38 @@
     }
   })
 
+  var standWinder360RotationObj = { curImg: 0 };
+  var standWinderRotationElement = document.querySelector('.stand-winder-rotation');
+
+  var standWinder360RotationTween = TweenMax.to(standWinder360RotationObj, {
+    curImg: standWinderImagesStack.length - 1,
+    roundProps: 'curImg',
+    repeat: 0,
+    immediateRender: true,
+    ease: Linear.easeNone,
+    onUpdate: function() {
+      standWinderRotationElement.style.backgroundImage = 'url(' + standWinderImagesStack[standWinder360RotationObj.curImg] + ')';
+    }
+  })
+
   var singleWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 15700})
     .setTween(singleWinder360RotationTween)
     // .addIndicators({name: '360 tween'})
     .addTo(controller);
 
-  var tripeWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 11700})
+  var tripleWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 11700})
     .setTween(tripleWinder360RotationTween)
     // .addIndicators({name: '360 tween # 3'})
     .addTo(controller);
 
   var doubleWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 13700})
     .setTween(doubleWinder360RotationTween)
-    .addIndicators({name: '360 tween # 4'})
+    // .addIndicators({name: '360 tween # 4'})
+    .addTo(controller);
+
+  var standWinder360Rotation = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1500, offset: 7800})
+    .setTween(standWinder360RotationTween)
+    .addIndicators({name: '360 tween stand'})
     .addTo(controller);
 
   var fifthImageRealWinderFadeInTween = new TimelineMax()
