@@ -693,8 +693,8 @@ body, html {
 }
 
 .slider__2 .slider__image { background-image: url('./slider/Wall_Front.png'); }
-.slider__3 .slider__image { background-image: url('./slider/Triple_Front.png'); }
-.slider__4 .slider__image { background-image: url('./slider/Double_Front.png'); }
+/* .slider__3 .slider__image { background-image: url('./slider/Triple_Front.png'); } */
+/* .slider__4 .slider__image { background-image: url('./slider/Double_Front.png'); } */
 .slider__5 .winder {
   transform: scale(.575);
 }
@@ -889,6 +889,17 @@ body, html {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  top: 0;
+  top: -10000px;
   left: -10000px;
+}
+
+.image-360-rotation {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
