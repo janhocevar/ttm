@@ -1158,9 +1158,9 @@
     .addTo(controller);
     
   var firstSlideAnimationTween = new TimelineMax()
-    .add(TweenMax.fromTo('.slider__1 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone, immediateRender: false }))
+    .add(TweenMax.fromTo('.slider__1 .slider-content', { zIndex: 0, opacity: 0 }, { opacity: 1, zIndex: 10, ease: Linear.easeNone, immediateRender: false }))
 
-  var firstSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7500, duration: 1800 })
+  var firstSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7700, duration: 50 })
     .setTween(firstSlideAnimationTween)
     // .addIndicators({name: 'slide #1'})
     .addTo(controller);
@@ -1174,9 +1174,9 @@
     .addTo(controller);
 
   var firstSlideAnimationTweenOut = new TimelineMax()
-    .add(TweenMax.fromTo('.slider__1 .slider-content', { opacity: 1, y: '-10%' }, { opacity: 0, zIndex: 0, y: '-20%', ease: Linear.easeNone, immediateRender: false }))
+    .add(TweenMax.fromTo('.slider__1 .slider-content', { opacity: 1 }, { opacity: 0, zIndex: 0, ease: Linear.easeNone, immediateRender: false }))
   
-  var firstSlideAnimationTextOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
+  var firstSlideAnimationTextOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 50 })
     .setTween(firstSlideAnimationTweenOut)
     // .addIndicators({name: 'slide #1 text out'})
     .addTo(controller);
@@ -1192,7 +1192,7 @@
   var firstSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__1', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var firstSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 200 })
+  var firstSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9300, duration: 50 })
     .setTween(firstSlideSimageOut)
     // .addIndicators({name: 'slide #1 out'})
     .addTo(controller);
@@ -1201,12 +1201,12 @@
    * SLIDE 2
    */
   var secondSlideBodyIn = new TimelineMax()
-    .add(TweenMax.fromTo('.slider__2 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone, immediateRender: false }))
+    .add(TweenMax.fromTo('.slider__2 .slider-content', { zIndex: 0, opacity: 0 }, { opacity: 1, zIndex: 10, ease: Linear.easeNone, immediateRender: false }))
 
   var secondSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__2 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var secondSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9500, duration: 1800 })
+  var secondSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 9500, duration: 50 })
     .setTween(secondSlideBodyIn)
     // .addIndicators({name: 'slide #2'})
     .addTo(controller);
@@ -1219,7 +1219,7 @@
   var secondSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__2', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var secondSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11300, duration: 200 })
+  var secondSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11300, duration: 50 })
     .setTween(secondSlideSimageOut)
     // .addIndicators({name: 'slide #2 out'})
     .addTo(controller);
@@ -1228,17 +1228,17 @@
    * SLIDE 3
    */
   var thirdSlideBodyIn = new TimelineMax()
-    .add(TweenMax.fromTo('.slider__3 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone, immediateRender: false }))
+    .add(TweenMax.fromTo('.slider__3 .slider-content', { zIndex: 0, opacity: 0 }, { opacity: 1, zIndex: 10, ease: Linear.easeNone, immediateRender: false }))
 
   var thirdSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__3 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var thirdSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11500, duration: 1800 })
+  var thirdSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11500, duration: 50 })
     .setTween(thirdSlideBodyIn)
     // .addIndicators({name: 'slide #3'})
     .addTo(controller);
 
-  var thirdSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11500, duration: 300 })
+  var thirdSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 11500, duration: 50 })
     .setTween(thirdSlideSimageIn)
     // .addIndicators({name: 'slide #3 image in'})
     .addTo(controller);
@@ -1246,7 +1246,7 @@
   var thirdSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__3', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var thirdSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13300, duration: 200 })
+  var thirdSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13300, duration: 50 })
     .setTween(thirdSlideSimageOut)
     // .addIndicators({name: 'slide #3 out'})
     .addTo(controller);
@@ -1255,17 +1255,17 @@
    * SLIDE 4
    */
   var fourthSlideBodyIn = new TimelineMax()
-    .add(TweenMax.fromTo('.slider__4 .slider-content', { zIndex: 0, opacity: 0, y: '10%' }, { opacity: 1, zIndex: 10, y: '-10%', ease: Linear.easeNone, immediateRender: false }))
+    .add(TweenMax.fromTo('.slider__4 .slider-content', { zIndex: 0, opacity: 0 }, { opacity: 1, zIndex: 10, ease: Linear.easeNone, immediateRender: false }))
 
   var fourthSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__4 .slider__image', { opacity: 0, x: 50 }, { opacity: 1, x: 0, immediateRender: false }));
 
-  var fourthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500, duration: 1800 })
+  var fourthSlideAnimation = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500, duration: 50 })
     .setTween(fourthSlideBodyIn)
     // .addIndicators({name: 'slide #4'})
     .addTo(controller);
 
-  var fourthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500, duration: 300 })
+  var fourthSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500, duration: 50 })
     .setTween(fourthSlideSimageIn)
     // .addIndicators({name: 'slide #4 image in'})
     .addTo(controller);
@@ -1273,7 +1273,7 @@
   var fourthSlideSimageOut = new TimelineMax()
     .add(TweenMax.fromTo('.slider__4', { opacity: 1 }, { opacity: 0, immediateRender: false }));
   
-  var fourthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15300, duration: 200 })
+  var fourthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15300, duration: 50 })
     .setTween(fourthSlideSimageOut)
     // .addIndicators({name: 'slide #4 out'})
     .addTo(controller);
