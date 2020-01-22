@@ -33,7 +33,7 @@ body, html {
   width: 800px;
   height: 800px;
   position: absolute;
-  left: -171px;
+  left: -154px;
 }
 
 /* .background-section {
@@ -693,14 +693,14 @@ body, html {
 }
 
 .slider__1 .slider__image {
-  transform: scale(1.2);
+  transform: scale(1);
   /* left: -420px; */
 }
 .slider__2 .slider__image { background-image: url('./slider/Wall_Front.png'); }
 /* .slider__3 .slider__image { background-image: url('./slider/Triple_Front.png'); } */
 /* .slider__4 .slider__image { background-image: url('./slider/Double_Front.png'); } */
 .slider__5 .winder {
-  transform: scale(.575);
+  transform: scale(.63);
 }
 
 .slider__5 .winder {
