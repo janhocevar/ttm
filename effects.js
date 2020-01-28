@@ -12,10 +12,14 @@
   let scrollposSingle = 0;
   let lastposSingle;
 
+  let scrollposWall = 0;
+  let lastposWall;
+
   const videoTTMStand = document.querySelector('#video-ttm-stand');
   const videoTTMDouble = document.querySelector('#video-ttm-double');
   const videoTTMDoublePlus = document.querySelector('#video-ttm-double-plus');
   const videoTTMSingle = document.querySelector('#video-ttm-single');
+  const videoTTMWall = document.querySelector('#video-ttm-wall');
 
   function preloadVideoStand(v, callback) {
     const ready = () => {
@@ -26,6 +30,23 @@
         if (v.readyState > 3) {
           clearInterval(i);
           videoTTMStand.currentTime = 0;
+          callback();
+        }
+      }, 50);
+    };
+    v.addEventListener('canplaythrough', ready, false);
+    v.play();
+  };
+
+  function preloadVideoWall(v, callback) {
+    const ready = () => {
+      v.removeEventListener('canplaythrough', ready);
+  
+      videoTTMWall.pause();
+      var i = setInterval(function() {
+        if (v.readyState > 3) {
+          clearInterval(i);
+          videoTTMWall.currentTime = 0;
           callback();
         }
       }, 50);
@@ -247,6 +268,25 @@
     .setTween(firstSlideSimageOut)
     // .addIndicators({name: 'slide #1 out'})
     .addTo(controller);
+
+  var wallVideoScene = new ScrollMagic.Scene({ triggerElement: '.single-break', offset: 9700, duration: 1500 });
+
+  function wallVideoSceneStartAnimation() {
+    wallVideoScene
+      .addTo(controller)
+      .on('progress', function(e) {
+        scrollposWall = e.progress;
+      });
+
+    setInterval(() => {
+      if (lastposWall === scrollposWall) return;
+      requestAnimationFrame(() => {
+        videoTTMWall.currentTime = videoTTMWall.duration * scrollposWall;
+        videoTTMWall.pause();
+        lastposWall = scrollposWall;
+      });
+    }, 50);
+  }
 
   /**
    * SLIDE 2
@@ -716,5 +756,6 @@
   preloadVideoDouble(videoTTMDouble, secondVideoSceneStartAnimation);
   preloadVideoDoublePlus(videoTTMDoublePlus, thirdVideoSceneStartAnimation);
   preloadVideoSingle(videoTTMSingle, fourthVideoSceneStartAnimation);
+  preloadVideoWall(videoTTMWall, wallVideoSceneStartAnimation);
 
 })();
