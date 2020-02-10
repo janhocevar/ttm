@@ -768,4 +768,20 @@
   preloadVideoSingle(videoTTMSingle, fourthVideoSceneStartAnimation);
   preloadVideoWall(videoTTMWall, wallVideoSceneStartAnimation);
 
+
+  var animateToSectionButtons = document.querySelectorAll('.navigate-to-section');
+
+  animateToSectionButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      var offset = parseInt(this.dataset.offset);
+
+      window.scrollTo({
+        top: offset,
+      })
+    });
+  });
+
 })();

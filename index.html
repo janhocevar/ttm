@@ -24,8 +24,8 @@
       <div class="header-logo"></div>
       <div class="header-links">
         <ul>
-          <li><a href="#">overview</a></li>
-          <li><a href="#">tech specs</a></li>
+          <li><a class="navigate-to-section" href="#" data-offset="9050">overview</a></li>
+          <li><a class="navigate-to-section" href="#" data-offset="29500">tech specs</a></li>
         </ul>
       </div>
     </div>
@@ -40,7 +40,7 @@
     </div>
   </section>
   <div class="single-break"></div>
-  <div class="slider-descriptions">
+  <div class="slider-descriptions" id="overview">
     <div class="slider-slide slider__1">
       <div class="slider__image">
         <video src="videos/ttm-stand.mp4" muted id="video-ttm-stand"></video>
@@ -215,17 +215,6 @@
     </div>
   </section>
 
-  <!-- <section class="products-slider-section">
-    <div class="products-slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
-      <img src="slider/Double_Front.png">
-      <img src="slider/Stand_Front.png">
-      <img src="slider/Single_Front.png">
-      <img src="slider/Triple_Front.png">
-      <img src="slider/Wall_Front.png">
-    </div>
-    <div class="products-navigation"></div>
-  </section> -->
-
   <section class="animation-section empty-section">
     <div class="empty-section--fade-in"></div>
 
@@ -292,12 +281,5 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script src="effects.js"></script>
-
-  <script>
-    $('.products-slider').slick({
-      autoplay: false,
-      dots: true,
-    });
-  </script>
 </body>
 </html>
