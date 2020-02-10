@@ -243,6 +243,14 @@
     // .addIndicators({name: 'Big Stand Move Left'})
     .addTo(controller);
 
+  var firstSlideZIndexTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__1', { zIndex: 0 }, { zIndex: 10, immediateRender: false }));
+
+  var firstSlideZIndex = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8130 })
+    .setTween(firstSlideZIndexTween)
+    .addIndicators({name: 'First Slide In'})
+    .addTo(controller);
+
   var firstSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__1 .slider__image', { opacity: 0 }, { opacity: 1, immediateRender: false }));
 
@@ -284,6 +292,22 @@
   var firstSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10500, duration: 200 })
     .setTween(firstSlideSimageOut)
     // .addIndicators({name: 'Fade out first slide'})
+    .addTo(controller);
+
+  var firstSlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__1', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var firstSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10700 })
+    .setTween(firstSlideZIndexOutTween)
+    .addIndicators({name: 'First Slide Out'})
+    .addTo(controller);
+
+  var secondSlideZIndexTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__2', { zIndex: 0 }, { zIndex: 10, immediateRender: false }));
+
+  var secondSlideZIndex = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10800 })
+    .setTween(secondSlideZIndexTween)
+    .addIndicators({name: 'Second Slide In'})
     .addTo(controller);
 
   var wallVideoScene = new ScrollMagic.Scene({ triggerElement: '.single-break', offset: 10800, duration: 2500 });
@@ -333,6 +357,22 @@
     // .addIndicators({name: 'Slider 2 Out'})
     .addTo(controller);
 
+  var secondSlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__2', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var secondSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13400 })
+    .setTween(secondSlideZIndexOutTween)
+    .addIndicators({name: 'Second Slide Out'})
+    .addTo(controller);
+
+  var thirdSlideZIndexTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__3', { zIndex: 0 }, { zIndex: 10, immediateRender: false }));
+
+  var thirdSlideZIndex = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500 })
+    .setTween(thirdSlideZIndexTween)
+    .addIndicators({name: 'Third Slide In'})
+    .addTo(controller);
+
   /**
    * SLIDE 3
    */
@@ -379,6 +419,22 @@
     // .addIndicators({name: 'Slider 3 Out'})
     .addTo(controller);
 
+  var thirdSlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__3', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var thirdSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15900 })
+    .setTween(thirdSlideZIndexOutTween)
+    .addIndicators({name: 'Third Slide Out'})
+    .addTo(controller);
+
+  var fourthSlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__4', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var fourthSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16000 })
+    .setTween(fourthSlideZIndexOutTween)
+    .addIndicators({name: 'Fourth Slide In'})
+    .addTo(controller);
+
   /**
    * SLIDE 4
    */
@@ -423,6 +479,22 @@
   var fourthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18100, duration: 200 })
     .setTween(fourthSlideSimageOut)
     // .addIndicators({name: 'Slide 4 Out'})
+    .addTo(controller);
+
+  var fourthlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__4', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var fourthlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18300 })
+    .setTween(fourthlideZIndexOutTween)
+    .addIndicators({name: 'Fourth Slide Out'})
+    .addTo(controller);
+
+  var fifththSlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__5', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var fifththSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18400 })
+    .setTween(fifththSlideZIndexOutTween)
+    .addIndicators({name: 'Fifth Slide In'})
     .addTo(controller);
 
   /**
@@ -476,6 +548,14 @@
   var fifthSlideAnimationImageOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 20800, duration: 200 })
     .setTween(fifthSlideSimageOut)
     // .addIndicators({name: 'Slide 5 Out'})
+    .addTo(controller);
+
+  var fifthlideZIndexOutTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__5', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+
+  var fifthlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 21000 })
+    .setTween(fifthlideZIndexOutTween)
+    .addIndicators({name: 'Fifth Slide Out'})
     .addTo(controller);
 
   // var lastWinder = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 4400, offset: 15500})
