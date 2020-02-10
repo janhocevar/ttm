@@ -248,7 +248,7 @@
 
   var firstSlideZIndex = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8130 })
     .setTween(firstSlideZIndexTween)
-    .addIndicators({name: 'First Slide In'})
+    // .addIndicators({name: 'First Slide In'})
     .addTo(controller);
 
   var firstSlideSimageIn = new TimelineMax()
@@ -299,7 +299,7 @@
 
   var firstSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10700 })
     .setTween(firstSlideZIndexOutTween)
-    .addIndicators({name: 'First Slide Out'})
+    // .addIndicators({name: 'First Slide Out'})
     .addTo(controller);
 
   var secondSlideZIndexTween = new TimelineMax().add(
@@ -307,7 +307,7 @@
 
   var secondSlideZIndex = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 10800 })
     .setTween(secondSlideZIndexTween)
-    .addIndicators({name: 'Second Slide In'})
+    // .addIndicators({name: 'Second Slide In'})
     .addTo(controller);
 
   var wallVideoScene = new ScrollMagic.Scene({ triggerElement: '.single-break', offset: 10800, duration: 2500 });
@@ -362,7 +362,7 @@
 
   var secondSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13400 })
     .setTween(secondSlideZIndexOutTween)
-    .addIndicators({name: 'Second Slide Out'})
+    // .addIndicators({name: 'Second Slide Out'})
     .addTo(controller);
 
   var thirdSlideZIndexTween = new TimelineMax().add(
@@ -370,7 +370,7 @@
 
   var thirdSlideZIndex = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 13500 })
     .setTween(thirdSlideZIndexTween)
-    .addIndicators({name: 'Third Slide In'})
+    // .addIndicators({name: 'Third Slide In'})
     .addTo(controller);
 
   /**
@@ -424,7 +424,7 @@
 
   var thirdSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 15900 })
     .setTween(thirdSlideZIndexOutTween)
-    .addIndicators({name: 'Third Slide Out'})
+    // .addIndicators({name: 'Third Slide Out'})
     .addTo(controller);
 
   var fourthSlideZIndexOutTween = new TimelineMax().add(
@@ -432,7 +432,7 @@
 
   var fourthSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16000 })
     .setTween(fourthSlideZIndexOutTween)
-    .addIndicators({name: 'Fourth Slide In'})
+    // .addIndicators({name: 'Fourth Slide In'})
     .addTo(controller);
 
   /**
@@ -486,7 +486,7 @@
 
   var fourthlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18300 })
     .setTween(fourthlideZIndexOutTween)
-    .addIndicators({name: 'Fourth Slide Out'})
+    // .addIndicators({name: 'Fourth Slide Out'})
     .addTo(controller);
 
   var fifththSlideZIndexOutTween = new TimelineMax().add(
@@ -494,7 +494,7 @@
 
   var fifththSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 18400 })
     .setTween(fifththSlideZIndexOutTween)
-    .addIndicators({name: 'Fifth Slide In'})
+    // .addIndicators({name: 'Fifth Slide In'})
     .addTo(controller);
 
   /**
@@ -555,7 +555,7 @@
 
   var fifthlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 21000 })
     .setTween(fifthlideZIndexOutTween)
-    .addIndicators({name: 'Fifth Slide Out'})
+    // .addIndicators({name: 'Fifth Slide Out'})
     .addTo(controller);
 
   // var lastWinder = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 4400, offset: 15500})
