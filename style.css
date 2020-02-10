@@ -801,6 +801,8 @@ header a {
   border-radius: 5px;
   border: 1px solid #000;
   transition: background 70ms ease-in-out;
+  color: #000;
+  text-decoration: none;
 }
 
 .slider__button:hover {
