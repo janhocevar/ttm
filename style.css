@@ -29,11 +29,77 @@ body, html {
   transform: scale(1.6);
 }
 
+header {
+  position: fixed;
+  z-index: 1000;
+  padding: 0 140px;
+  left: 0;
+  right: 0;
+}
+
+header a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.header-inner {
+  min-height: 136px;
+  height: 100%;
+  border-bottom: 1px solid #FFF;
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+  color: #FFF;
+  font-size: 17px;
+  justify-content: space-between;
+}
+
+.header-inner--black {
+  background: #000;
+}
+
+.header-inner--black .header-inner {
+  border-bottom: none;
+}
+
+.header-logo {
+  background: url('./tm-logo-white.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 55px;
+  justify-self: center;
+}
+
 .slider__5 .winder {
   width: 800px;
   height: 800px;
   position: absolute;
   left: -154px;
+}
+
+.header-links {
+  justify-self: flex-end;
+}
+
+.header-links ul {
+  list-style: none;
+  margin: 0 30px 0 0;
+  padding: 0;
+  display: flex;
+}
+
+.header-links li:not(:last-child) {
+  padding-right: 10px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.header-links li:not(:last-child):after {
+  content: '|';
+  position: absolute;
+  top: 0;
+  right: -10px;
 }
 
 /* .background-section {

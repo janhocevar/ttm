@@ -108,6 +108,31 @@
 
   var controller = new ScrollMagic.Controller();
 
+  var stickyMenuTween = new TimelineMax()
+    .add([
+      TweenMax.fromTo('.header-inner', 2, { minHeight: 136 }, { minHeight: 80, zIndex: 5000000, immediateRender: false, ease: Linear.easeNone })
+    ]);
+
+  var stickyMenu = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: 338, duration: 60 })
+    .setTween(stickyMenuTween)
+    // .addIndicators({name: 'Sticky Menu'})
+    .addTo(controller);
+
+  var stickyMenuLogoTween = new TimelineMax()
+    .add([
+      TweenMax.fromTo('.header-logo', 2, { scale: 1 }, { scale: .68, immediateRender: false, ease: Linear.easeNone })
+    ]);
+
+  var stickyMenuLogo = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: 338, duration: 60 })
+    .setTween(stickyMenuLogoTween)
+    // .addIndicators({name: 'Sticky Menu Logo'})
+    .addTo(controller);
+
+  var stickyMenuBlackClass = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: 338 })
+    .setClassToggle('header', 'header-inner--black')
+    // .addIndicators({name: 'Sticky Menu Black BG'})
+    .addTo(controller);
+
   var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 2180})
                 .setPin('.main-winder')
                 // .addIndicators({name: 'winder'})
