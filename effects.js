@@ -427,11 +427,11 @@
     // .addIndicators({name: 'Third Slide Out'})
     .addTo(controller);
 
-  var fourthSlideZIndexOutTween = new TimelineMax().add(
-    TweenMax.fromTo('.slider__4', { zIndex: 10 }, { zIndex: 0, immediateRender: false }));
+  var fourthSlideZIndexInTween = new TimelineMax().add(
+    TweenMax.fromTo('.slider__4', { zIndex: 0 }, { zIndex: 10, immediateRender: false }));
 
-  var fourthSlideZIndexOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16000 })
-    .setTween(fourthSlideZIndexOutTween)
+  var fourthSlideZIndexIn = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 16000 })
+    .setTween(fourthSlideZIndexInTween)
     // .addIndicators({name: 'Fourth Slide In'})
     .addTo(controller);
 
