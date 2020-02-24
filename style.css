@@ -118,7 +118,13 @@ header a {
 
 .first-section {
   background: #000;
-  height: 948px;
+  height: 100vh;
+}
+
+@media screen and (max-height: 900px) {
+  .first-section {
+    height: 95vh;
+  }
 }
 
 .first-section video {
@@ -444,8 +450,8 @@ header a {
   }
 
   .app-mockup {
-    width: 970px;
-    height: 1638px;
+    width: 1150px;
+    height: 1798px;
   }
 
   .app-mockup-text-section__title {
@@ -974,4 +980,92 @@ header a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-height: 900px) {
+  .extra-info-paragraph {
+    top: 260px;
+  }
+
+  .stand-without-top-one {
+    transform: scale(1.6);
+  }
+
+  .section-second-info-paragraph {
+    font-size: 20px;
+    margin-top: 80px;
+    left: 5vw;
+  }
+
+  .slider-descriptions {
+    top: 800px;
+  }
+}
+
+@media screen and (max-height: 850px) {
+  .slider-descriptions {
+    top: 740px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .winder-bottom-description {
+    top: 700px;
+  }
+
+  .winder-bottom-description:after {
+    display: none;
+  }
+
+  .winder-bottom-description__1 {
+    transform: translate(-660px, 280px);
+  }
+
+  .winder-bottom-description__2 {
+    transform: translate(320px, 280px);
+  }
+
+  .winder-bottom-description__3 {
+    transform: translate(-660px, 280px);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .winder-bottom-description {
+    width: 300px;
+  }
+
+  .winder-bottom-description__1 {
+    transform: translate(-600px, 170px);
+  }
+
+  .winder-bottom-description__2 {
+    transform: translate(300px, 170px);
+  }
+
+  .winder-bottom-description__3 {
+    transform: translate(-600px, 170px);
+  }
+
+  .app-mockup-text-section {
+    padding-top: 0;
+  }
+}
+
+@media screen and (min-height: 1050px) {
+  .slider-descriptions {
+    top: 1170px;
+  }
+
+  .winder-bottom-description__1 {
+    transform: translate(-734px, 400px);
+  }
+
+  .winder-bottom-description__2 {
+    transform: translate(362px, 200px);
+  }
+
+  .winder-bottom-description__3 {
+    transform: translate(-734px, 220px);
+  }
 }

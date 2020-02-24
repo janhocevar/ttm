@@ -1,5 +1,8 @@
 (function() {
 
+  var windowWidth = window.innerWidth;
+  var windowHeight = window.innerHeight;
+
   let scrollposStand = 0;
   let lastposStand;
 
@@ -113,7 +116,14 @@
       TweenMax.fromTo('.header-inner', 2, { minHeight: 136 }, { minHeight: 80, zIndex: 5000000, immediateRender: false, ease: Linear.easeNone })
     ]);
 
-  var stickyMenu = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: 338, duration: 60 })
+  var stickyMenuOffset;
+  if (windowHeight < 900) {
+    stickyMenuOffset = 200;
+  } else {
+    stickyMenuOffset = 338;
+  }
+
+  var stickyMenu = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: stickyMenuOffset, duration: 60 })
     .setTween(stickyMenuTween)
     // .addIndicators({name: 'Sticky Menu'})
     .addTo(controller);
@@ -123,17 +133,27 @@
       TweenMax.fromTo('.header-logo', 2, { scale: 1 }, { scale: .68, immediateRender: false, ease: Linear.easeNone })
     ]);
 
-  var stickyMenuLogo = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: 338, duration: 60 })
+  var stickyMenuLogo = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: stickyMenuOffset, duration: 60 })
     .setTween(stickyMenuLogoTween)
     // .addIndicators({name: 'Sticky Menu Logo'})
     .addTo(controller);
 
-  var stickyMenuBlackClass = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: 338 })
+  var stickyMenuBlackClass = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: stickyMenuOffset })
     .setClassToggle('header', 'header-inner--black')
     // .addIndicators({name: 'Sticky Menu Black BG'})
     .addTo(controller);
 
-  var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 2180})
+  var firstWinderStopOffset = 0;
+  if (windowHeight = 1050) {
+    firstWinderStopOffset = -100;
+  }
+
+  var firstWinderStopDuration = 2180;
+  if (windowHeight = 1050) {
+    // firstWinderStopDuration -= firstWinderStopOffset;
+  }
+
+  var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: firstWinderStopDuration, offset: firstWinderStopOffset})
                 .setPin('.main-winder')
                 // .addIndicators({name: 'winder'})
                 .addTo(controller);
@@ -166,16 +186,37 @@
                               // .addIndicators({name: 'rotation'})
                               .addTo(controller);
 
+
+  var mainWinderScale;
+  if (windowWidth <= 1280) {
+    mainWinderScale = .7;
+  } else {
+    mainWinderScale = .9;
+  }
+
+  var mainWinderStartingScale;
+  if (windowWidth <= 1280) {
+    mainWinderStartingScale = 1.4;
+  } else {
+    mainWinderStartingScale = 1.6;
+  }
+
   var winderTween = new TimelineMax()
     .add([
-      TweenMax.fromTo('.main-winder', 2, { scale: 1.6 }, { scale: .9, immediateRender: false })
+      TweenMax.fromTo('.main-winder', 2, { scale: mainWinderStartingScale }, { scale: mainWinderScale, immediateRender: false })
     ])
   var startWinderParallax = new ScrollMagic.Scene({triggerElement: '.start-parallax-winder-section', duration: 500})
                             .setTween(winderTween)
                             // .addIndicators({name: 'startWinderParallax'})
                             .addTo(controller);
 
-  var winderStopPosition = new ScrollMagic.Scene({triggerElement: '.start-parallax-winder-stop-section', duration: 2950})
+  var winderStopPositionDuration;
+  if (windowHeight < 900) {
+    winderStopPositionDuration = 3350;
+  } else {
+    winderStopPositionDuration = 2950;
+  }
+  var winderStopPosition = new ScrollMagic.Scene({triggerElement: '.start-parallax-winder-stop-section', duration: winderStopPositionDuration})
                           .setPin('.main-winder')
                           // .addIndicators({name: 'neki'})
                           .addTo(controller);
@@ -199,9 +240,16 @@
                         .setTween(standTween)
                         .addTo(controller);
 
+  var standWithoutTopOneScale;
+  if (windowHeight < 900) {
+    standWithoutTopOneScale = 1.6;
+  } else {
+    standWithoutTopOneScale = 2;
+  }
+
   var standRemoveTween = new TimelineMax()
     .add([
-      TweenMax.fromTo('.stand-without-top-one', 1, { scale: 2 }, { scale: .195, ease: Linear.easeNone, immediateRender: false })
+      TweenMax.fromTo('.stand-without-top-one', 1, { scale: standWithoutTopOneScale }, { scale: .195, ease: Linear.easeNone, immediateRender: false })
     ]);
   var removeTopSection = new ScrollMagic.Scene({triggerElement: '.remove-top-stand-section', duration: 500})
                         .setTween(standRemoveTween)
@@ -770,10 +818,12 @@
     // .addIndicators({name: 'specs scroll'})
     .addTo(controller);
 
+  var appMockupsDuration = 800;
+
   /**
    * first text
    */
-  var appMockupFirstTextPin = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 800, offset: 650})
+  var appMockupFirstTextPin = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: appMockupsDuration, offset: 650})
     .setPin('.app-mockup-text-section--first')
     // .addIndicators({name: 'stick first text'})
     .addTo(controller);
@@ -797,7 +847,7 @@
   /**
    * second text
    */
-  var appMockupFirstTextPin2 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 769, offset: 1500})
+  var appMockupFirstTextPin2 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: appMockupsDuration, offset: 1500})
       .setPin('.app-mockup-text-section--second')
       // .addIndicators({name: 'stick second text'})
       .addTo(controller);
@@ -821,7 +871,7 @@
   /**
    * third text
    */
-  var appMockupFirstTextPin3 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 769, offset: 2300})
+  var appMockupFirstTextPin3 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: appMockupsDuration, offset: 2300})
       .setPin('.app-mockup-text-section--third')
       // .addIndicators({name: 'stick third text'})
       .addTo(controller);
