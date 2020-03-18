@@ -1060,9 +1060,10 @@ header a {
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 770px) {
   .visible-mobile {
     display: block;
+    position: relative;
   }
 
   .hidden-mobile {
@@ -1301,7 +1302,8 @@ header a {
   }
 
   .banner-section {
-    padding: 0 20px;
+    padding: 0 20px 100px;
+    height: auto;
   }
 
   .banner-section h1 {
@@ -1338,5 +1340,116 @@ header a {
 
   .winder-bottom-description__3 {
     transform: translate(-734px, 220px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .mobile-winder {
+    width: 509px;
+    height: 515px;
+    margin: 0;
+    /* transform: scale(2.7) translateX(-50%);
+    transform-origin: 0; */
+  }
+
+  .mobile-winder-wrapper {
+    position: relative;
+    transform-origin: top;
+    z-index: 10;
+  }
+
+  .mobile-winder-section {
+    padding-top: 100px;
+    /* height: 1200px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10000;
+    top: -410px; */
+  }
+
+  .mobile-winder .winder-light {
+    display: none;
+  }
+
+  .mobile-winder .winder-stand {
+    width: 509px;
+    height: 156px;
+    background-size: 509px 156px;
+  }
+
+  .mobile-winder .winder-winder {
+    width: 455px;
+    height: 458px;
+    bottom: 54px;
+    left: 27px;
+  }
+
+  .mobile-winder .winder-center {
+    width: 263px;
+    height: 263px;
+    top: 102px;
+    left: 123px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .mobile-winder {
+    width: 391px;
+    height: 396px;
+  }
+
+  .mobile-winder .winder-light {
+    display: none;
+  }
+
+  .mobile-winder .winder-stand {
+    width: 391px;
+    height: 120px;
+    background-size: 391px 120px;
+  }
+
+  .mobile-winder .winder-winder {
+    width: 350px;
+    height: 352px;
+    bottom: 43px;
+    left: 19px;
+  }
+
+  .mobile-winder .winder-center {
+    width: 204px;
+    height: 204px;
+    top: 76px;
+    left: 92px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mobile-winder {
+    width: 301px;
+    height: 305px;
+  }
+
+  .mobile-winder .winder-light {
+    display: none;
+  }
+
+  .mobile-winder .winder-stand {
+    width: 301px;
+    height: 92px;
+    background-size: 301px 92px;
+  }
+
+  .mobile-winder .winder-winder {
+    width: 269px;
+    height: 270px;
+    bottom: 33px;
+    left: 15px;
+  }
+
+  .mobile-winder .winder-center {
+    width: 158px;
+    height: 158px;
+    top: 58px;
+    left: 70px;
   }
 }

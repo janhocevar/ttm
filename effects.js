@@ -3,7 +3,7 @@
   var windowWidth = document.body.clientWidth;
   var windowHeight = document.body.clientHeight;
 
-  var mobileWidthBreakPoint = 600;
+  var mobileWidthBreakPoint = 770;
   var isMobile = windowWidth <= mobileWidthBreakPoint;
 
   var animateToSectionButtons = document.querySelectorAll('.navigate-to-section');
