@@ -1,7 +1,17 @@
 (function() {
 
-  var windowWidth = window.innerWidth;
-  var windowHeight = window.innerHeight;
+  var mobileWidthBreakPoint = 600;
+  var isMobile = windowWidth <= mobileWidthBreakPoint;
+
+  /**
+   * Mobile has it's own version of JS
+   */
+  if (!isMobile) {
+    return;
+  }
+
+  var windowWidth = document.body.clientWidth;
+  var windowHeight = document.body.clientHeight;
 
   let scrollposStand = 0;
   let lastposStand;
@@ -144,29 +154,28 @@
     .addTo(controller);
 
   var firstWinderStopOffset = 0;
-  if (windowHeight = 1050) {
+  if (windowHeight < 1050) {
     firstWinderStopOffset = -100;
   }
 
   var firstWinderStopDuration = 2180;
-  if (windowHeight = 1050) {
-    // firstWinderStopDuration -= firstWinderStopOffset;
-  }
 
   var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: firstWinderStopDuration, offset: firstWinderStopOffset})
                 .setPin('.main-winder')
                 // .addIndicators({name: 'winder'})
                 .addTo(controller);
 
-  var firstText = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1900, offset: 250})
+  if (!isMobile) {
+    var firstText = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1900, offset: 250})
                 .setClassToggle('.extra-info-paragraph', 'in-viewport')
                 // .addIndicators({name: 'first text fade in'})
                 .addTo(controller);
-
-  var firstTextPin = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 1780, offset: 500})
-    .setPin('.extra-info-paragraph')
-    // .addIndicators({name: 'first text pin'})
-    .addTo(controller);
+  
+    var firstTextPin = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 1780, offset: 500})
+      .setPin('.extra-info-paragraph')
+      // .addIndicators({name: 'first text pin'})
+      .addTo(controller);
+  }
 
   // var firstTextParallax = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1000, offset: 350})
   //               .setTween('.extra-info-paragraph', {y: "-50%", ease: Linear.easeNone})

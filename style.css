@@ -1052,6 +1052,168 @@ header a {
   }
 }
 
+.hidden-mobile {
+  display: inherit;
+}
+
+@media screen and (max-width: 600px) {
+  .hidden-mobile {
+    display: none;;
+  }
+
+  .empty-section {
+    height: auto;
+    margin-top: 0;
+  }
+
+  .section-stick {
+    overflow: hidden;
+    height: auto;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .section-second-info {
+    height: auto;
+    padding-top: 0;
+  }
+
+  .specs-section__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slider-descriptions {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    top: auto;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .stand-without-top-one {
+    width: 100%;
+  }
+
+  .slider__image {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .slider-slide .slider-content {
+    opacity: 1;
+  }
+
+  .slider-content {
+    transform: translateX(0);
+  }
+
+  .slider-slide {
+    position: relative;
+    top: auto;
+  }
+
+  .fulhaber-motor-image {
+    width: 80%;
+    transform: translate(0);
+  }
+
+  .single-winder-section {
+    overflow: hidden;
+    height: auto;
+  }
+
+  .fulhaber-motor-image-description {
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  .slider__image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: auto;
+  }
+
+  .section-second-info-paragraph {
+    width: 100%;
+  }
+
+  .extra-info-paragraph {
+    opacity: 1;
+    width: 95%;
+    font-size: 30px;
+  }
+
+  .single-winder-section {
+    padding-top: 0;
+  }
+
+  video {
+    max-width: 100%;
+  }
+
+  [class*="winder-bottom-description__"] {
+    transform: translate(0, 0);
+    width: 100%;
+    top: auto;
+    left: 0;
+    opacity: 1;
+    position: relative;
+  }
+
+  header {
+    padding: 0 20px;
+  }
+
+  .header-title,
+  .header-links {
+    display: none;
+  }
+
+  .slider__5 .winder {
+    display: none;
+  }
+
+  .specs-section {
+    overflow: hidden;
+    height: auto;
+    padding: 0 10vw;
+  }
+
+  .first-section video {
+    height: 100vh;
+  }
+
+  .banner-section {
+    padding: 0 20px;
+  }
+
+  .banner-section h1 {
+    font-size: 40px;
+  }
+
+  .winder {
+    width: 80%;
+    height: auto;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  .slider__5 .winder {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    left: 0;
+  }
+}
+
 @media screen and (min-height: 1050px) {
   .slider-descriptions {
     top: 1170px;
