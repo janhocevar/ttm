@@ -1056,7 +1056,15 @@ header a {
   display: inherit;
 }
 
+.visible-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
+  .visible-mobile {
+    display: block;
+  }
+
   .hidden-mobile {
     display: none;;
   }
@@ -1076,6 +1084,8 @@ header a {
   .section-second-info {
     height: auto;
     padding-top: 0;
+    opacity: 1;
+    position: relative;
   }
 
   .specs-section__list {
@@ -1089,12 +1099,13 @@ header a {
     position: relative;
     top: auto;
     left: 0;
-    width: 100%;
+    width: auto;
     height: auto;
+    padding: 0 10vw;
   }
 
   .stand-without-top-one {
-    width: 100%;
+    width: auto;
   }
 
   .slider__image {
@@ -1125,12 +1136,27 @@ header a {
     height: auto;
   }
 
+  .header-inner {
+    min-height: 80px;
+  }
+
+  .header-logo {
+    justify-self: flex-start;
+    width: 30px;
+    height: 34px;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .fulhaber-motor-image-description {
-    width: 100%;
+    width: auto;
     top: 0;
     left: 0;
     transform: translate(0, 0);
     opacity: 1;
+    padding: 0 10vw 20vw;
   }
 
   .slider__image {
@@ -1143,6 +1169,21 @@ header a {
 
   .section-second-info-paragraph {
     width: 100%;
+    opacity: 1;
+    position: relative;
+    left: 0;
+  }
+
+  .specs-section__list dt {
+    border-right: none;
+    border-bottom: none;
+    text-align: left;
+    padding: 10px 0;
+  }
+
+  .specs-section__list dd {
+    padding: 0 0 20px 0;
+    margin-bottom: 10px;
   }
 
   .extra-info-paragraph {
@@ -1170,10 +1211,78 @@ header a {
 
   header {
     padding: 0 20px;
+    background: #000;
   }
 
-  .header-title,
-  .header-links {
+  .open-mobile-menu {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .mobile-menu-bar {
+    width: 30px;
+    height: 3px;
+    background: #FFF;
+  }
+
+  .mobile-menu-bar:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  .header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000000;
+    background: #000;
+    transition: all 200ms ease-in-out;
+    height: 100vh;
+    transform: translateY(-100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .close-header-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #FFF;
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  body.mobile-menu-opened {
+    overflow: hidden;
+  }
+
+  body.mobile-menu-opened .header-menu {
+    transition: all 200ms ease-in;
+    transform: translateY(0);
+  }
+
+  .header-menu-links {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .header-menu-links li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .header-menu-links a {
+    color: #FFF;
+    font-size: 30px;
+    text-decoration: none;
+  }
+
+  .header-title a,
+  .header-links ul {
     display: none;
   }
 

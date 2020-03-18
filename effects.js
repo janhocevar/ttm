@@ -1,17 +1,36 @@
 (function() {
 
+  var windowWidth = document.body.clientWidth;
+  var windowHeight = document.body.clientHeight;
+
   var mobileWidthBreakPoint = 600;
   var isMobile = windowWidth <= mobileWidthBreakPoint;
+
+  var animateToSectionButtons = document.querySelectorAll('.navigate-to-section');
+
+  animateToSectionButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      var offset = parseInt(this.dataset.offset);
+
+      if (document.body.classList.contains('mobile-menu-opened')) {
+        document.body.classList.remove('mobile-menu-opened');
+      }
+
+      window.scrollTo({
+        top: offset,
+      })
+    });
+  });
 
   /**
    * Mobile has it's own version of JS
    */
-  if (!isMobile) {
+  if (isMobile) {
     return;
   }
-
-  var windowWidth = document.body.clientWidth;
-  var windowHeight = document.body.clientHeight;
 
   let scrollposStand = 0;
   let lastposStand;
@@ -906,21 +925,5 @@
   preloadVideoDoublePlus(videoTTMDoublePlus, thirdVideoSceneStartAnimation);
   preloadVideoSingle(videoTTMSingle, fourthVideoSceneStartAnimation);
   preloadVideoWall(videoTTMWall, wallVideoSceneStartAnimation);
-
-
-  var animateToSectionButtons = document.querySelectorAll('.navigate-to-section');
-
-  animateToSectionButtons.forEach(function(button) {
-    button.addEventListener('click', function(event) {
-      event.stopPropagation();
-      event.preventDefault();
-
-      var offset = parseInt(this.dataset.offset);
-
-      window.scrollTo({
-        top: offset,
-      })
-    });
-  });
 
 })();
