@@ -1403,7 +1403,7 @@ header a {
   }
 
   .mobile-winder-section {
-    padding-top: 240px;
+    padding-top: 280px;
     height: 1870px;
     overflow: hidden;
     margin-top: -940px;
@@ -1465,37 +1465,14 @@ header a {
 }
 
 @media screen and (max-width: 550px) {
-  .mobile-winder {
-    width: 391px;
-    height: 396px;
+  .mobile-winder-section {
+    padding-top: 240px;
   }
 
-  .mobile-winder .winder-light {
-    display: none;
+  .stand-without-top-one-wrapper {
+    padding: 0 20px;
   }
 
-  .mobile-winder .winder-stand {
-    width: 391px;
-    height: 120px;
-    background-size: 391px 120px;
-  }
-
-  .mobile-winder .winder-winder {
-    width: 350px;
-    height: 352px;
-    bottom: 43px;
-    left: 19px;
-  }
-
-  .mobile-winder .winder-center {
-    width: 204px;
-    height: 204px;
-    top: 76px;
-    left: 92px;
-  }
-}
-
-@media screen and (max-width: 400px) {
   .mobile-winder {
     width: 301px;
     height: 305px;
@@ -1530,8 +1507,14 @@ header a {
     top: 58px;
     left: 70px;
   }
+}
 
+@media screen and (max-width: 400px) {
   .winder-bottom-description {
     padding: 0 10vw;
+  }
+
+  .stand-without-top-one-wrapper {
+    padding: 0;
   }
 }
