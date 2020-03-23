@@ -1165,7 +1165,7 @@ header a {
   }
 
   .header-inner {
-    min-height: 80px;
+    min-height: 60px;
   }
 
   .header-logo {
@@ -1386,6 +1386,14 @@ header a {
     width: 509px;
     height: 515px;
     margin: 0;
+  }
+
+  .slider__image img {
+    max-width: 100%;
+  }
+
+  .slider__image video {
+    display: none;
   }
 
   .mobile-winder-wrapper {

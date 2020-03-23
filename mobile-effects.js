@@ -45,7 +45,7 @@
   /**
    * Top Winder Second Stop
    */
-  var winder2 = new ScrollMagic.Scene({triggerElement: ".mobile-winder-section", duration: 900, offset: 1200})
+  var winder2 = new ScrollMagic.Scene({triggerElement: ".mobile-winder-section", duration: 900, offset: 1180})
     .setPin('.mobile-winder-wrapper')
     // .addIndicators({name: 'Top Winder Second Stop'})
     .addTo(controller);
@@ -107,7 +107,7 @@
 
   var bottomWinderTriggerElement = '.mobile-bottom-winder-start-descriptions';
 
-  var winder2 = new ScrollMagic.Scene({triggerElement: bottomWinderTriggerElement, duration: 3200, offset: 250})
+  var winder2 = new ScrollMagic.Scene({triggerElement: bottomWinderTriggerElement, duration: 3200, offset: 230})
     .setPin('.mobile-winder--bottom-wrapper')
     // .addIndicators({name: 'Bottom Winder Stop'})
     .addTo(controller);
