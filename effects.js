@@ -172,17 +172,20 @@
     // .addIndicators({name: 'Sticky Menu Black BG'})
     .addTo(controller);
 
-  var firstWinderStopOffset = 0;
-  if (windowHeight < 1050) {
-    firstWinderStopOffset = -100;
-  }
+  var mainWinder = document.querySelector('.winder.main-winder .winder-winder');
+  var mainWinderHeight = mainWinder.offsetHeight * 1.6;
 
-  var firstWinderStopDuration = 2180;
+  var firstWinderStopDuration = 2295;
 
-  var winder = new ScrollMagic.Scene({triggerElement: ".single-break", duration: firstWinderStopDuration, offset: firstWinderStopOffset})
-                .setPin('.main-winder')
-                // .addIndicators({name: 'winder'})
-                .addTo(controller);
+  var winder = new ScrollMagic.Scene({
+    triggerElement: '.single-break',
+    triggerHook: 1,
+    duration: firstWinderStopDuration,
+    offset: mainWinderHeight / 2
+  })
+  .setPin('.main-winder')
+  // .addIndicators({name: 'First main Winder'})
+  .addTo(controller);
 
   if (!isMobile) {
     var firstText = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1900, offset: 250})
@@ -215,19 +218,8 @@
                               .addTo(controller);
 
 
-  var mainWinderScale;
-  if (windowWidth <= 1280) {
-    mainWinderScale = .7;
-  } else {
-    mainWinderScale = .9;
-  }
-
-  var mainWinderStartingScale;
-  if (windowWidth <= 1280) {
-    mainWinderStartingScale = 1.4;
-  } else {
-    mainWinderStartingScale = 1.6;
-  }
+  var mainWinderScale = .9;
+  var mainWinderStartingScale = 1.6;
 
   var winderTween = new TimelineMax()
     .add([
@@ -268,19 +260,13 @@
                         .setTween(standTween)
                         .addTo(controller);
 
-  var standWithoutTopOneScale;
-  if (windowHeight < 900) {
-    standWithoutTopOneScale = 1.6;
-  } else {
-    standWithoutTopOneScale = 2;
-  }
-
   var standRemoveTween = new TimelineMax()
     .add([
-      TweenMax.fromTo('.stand-without-top-one', 1, { scale: standWithoutTopOneScale }, { scale: .195, ease: Linear.easeNone, immediateRender: false })
+      TweenMax.fromTo('.stand-without-top-one--desktop', 1, { scale: 2 }, { scale: .195, ease: Linear.easeNone, immediateRender: false })
     ]);
   var removeTopSection = new ScrollMagic.Scene({triggerElement: '.remove-top-stand-section', duration: 500})
                         .setTween(standRemoveTween)
+                        .addIndicators({name: 'removeTopSection'})
                         .addTo(controller);
 
   var addEmptyWinderToTop = new ScrollMagic.Scene({triggerElement: ".remove-top-stand-section", duration: 0})
@@ -288,17 +274,17 @@
                           
                           .addTo(controller);
   
-  var startWinderSlider = new ScrollMagic.Scene({triggerElement: '.start-winders-slider-animation', duration: 4000})
-    .setPin('.stand-without-top-one')
+  var startWinderSlider = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7748, duration: 700 })
+    .setPin('.stand-without-top-one--desktop')
     // .addIndicators({name: 'startWinderSlider'})
     .addTo(controller);
 
-  var sliderDescriptions = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 28000})
+  var sliderDescriptions = new ScrollMagic.Scene({duration: 28000})
     .setPin('.slider-descriptions')
-    // .addIndicators({name: 'descriptions'})
+    .addIndicators({name: 'descriptions'})
     .addTo(controller);
 
-  var sliderDescriptionsClasses = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 22000, offset: 7500})
+  var sliderDescriptionsClasses = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 22000, offset: 7700})
     .setClassToggle('.slider-descriptions', 'slider-descriptions--visible')
     // .addIndicators({name: 'toggle descriptions'})
     .addTo(controller);
@@ -312,9 +298,9 @@
     .addTo(controller);
 
   var winderSliderTweenOut = new TimelineMax()
-    .add([ TweenMax.fromTo('.stand-without-top-one', { x: 0 }, { x: -310, immediateRender: false, ease: Linear.easeNone }) ]);
+    .add([ TweenMax.fromTo('.stand-without-top-one--desktop', { x: 0 }, { x: -310, immediateRender: false, ease: Linear.easeNone }) ]);
 
-  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7630, duration: 500 })
+  var firstSlideAnimationOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 7748, duration: 550 })
     .setTween(winderSliderTweenOut)
     // .addIndicators({name: 'Big Stand Move Left'})
     .addTo(controller);
@@ -330,17 +316,17 @@
   var firstSlideSimageIn = new TimelineMax()
     .add(TweenMax.fromTo('.slider__1 .slider__image', { opacity: 0 }, { opacity: 1, immediateRender: false }));
 
-  var secondSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8130, duration: 200 })
+  var secondSlideAnimationImage = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8280, duration: 100 })
     .setTween(firstSlideSimageIn)
-    // .addIndicators({name: 'Slider 1 Image Fade In'})
+    .addIndicators({name: 'Slider 1 Image Fade In'})
     .addTo(controller);
 
   var bigStandFadeOutTween = new TimelineMax()
-    .add(TweenMax.fromTo('.stand-without-top-one', { opacity: 1 }, { opacity: 0, immediateRender: false }));
+    .add(TweenMax.fromTo('.stand-without-top-one--desktop', { opacity: 1 }, { opacity: 0, immediateRender: false }));
 
-  var bigStandFadeOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8500, duration: 20 })
+  var bigStandFadeOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 8400, duration: 20 })
     .setTween(bigStandFadeOutTween)
-    // .addIndicators({name: 'Big Slider Removed'})
+    // .addIndicators({name: 'Big Stand Removed'})
     .addTo(controller);
 
   var firstVideoScene = new ScrollMagic.Scene({ triggerElement: '.single-break', offset: 8260, duration: 2300 })
