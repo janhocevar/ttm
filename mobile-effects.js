@@ -21,11 +21,19 @@
   });
 
   var controller = new ScrollMagic.Controller();
+  
+  var mainWinder = document.querySelector('.mobile-winder .winder-winder');
+  var mainWinderHeight = mainWinder.offsetHeight * 2.4;
 
   /**
    * Top Winder
    */
-  var winder = new ScrollMagic.Scene({triggerElement: ".banner-section", duration: 700, offset: 150})
+  var winder = new ScrollMagic.Scene({
+    triggerElement: ".banner-section",
+    triggerHook: 1,
+    duration: 700,
+    offset: 300 + (mainWinderHeight / 2),
+  })
     .setPin('.mobile-winder-wrapper')
     // .addIndicators({name: 'Top Winder'})
     .addTo(controller);
