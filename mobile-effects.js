@@ -25,6 +25,12 @@
   var mainWinder = document.querySelector('.mobile-winder .winder-winder');
   var mainWinderHeight = mainWinder.offsetHeight * 2.4;
 
+  var mainWinderOffset = 0;
+  var mainWinderOffsetAdjustmentStart = 800;
+  if (window.innerHeight > mainWinderOffsetAdjustmentStart) {
+    mainWinderOffset = window.innerHeight - mainWinderOffsetAdjustmentStart;
+  }
+
   /**
    * Top Winder
    */
@@ -32,7 +38,7 @@
     triggerElement: ".banner-section",
     triggerHook: 1,
     duration: 700,
-    offset: 300 + (mainWinderHeight / 2),
+    offset: 300 - mainWinderOffset + (mainWinderHeight / 2),
   })
     .setPin('.mobile-winder-wrapper')
     // .addIndicators({name: 'Top Winder'})
@@ -50,10 +56,15 @@
     // .addIndicators({name: 'Top Winder Smaller'})
     .addTo(controller);
 
+  var lightOn = new ScrollMagic.Scene({triggerElement: '.banner-section', duration: 250, offset: 300})
+    .setClassToggle('.mobile-winder-top .winder-light', 'winder-light--visible')
+    // .addIndicators({name: 'Lights On'})
+    .addTo(controller);
+
   /**
    * Top Winder Second Stop
    */
-  var winder2 = new ScrollMagic.Scene({triggerElement: ".mobile-winder-section", duration: 900, offset: 1180})
+  var winder2 = new ScrollMagic.Scene({triggerElement: ".mobile-winder-section", duration: 900, offset: 1180 + mainWinderOffset})
     .setPin('.mobile-winder-wrapper')
     // .addIndicators({name: 'Top Winder Second Stop'})
     .addTo(controller);

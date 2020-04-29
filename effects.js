@@ -168,12 +168,7 @@
       TweenMax.fromTo('.header-inner', 2, { minHeight: 136 }, { minHeight: 80, zIndex: 5000000, immediateRender: false, ease: Linear.easeNone })
     ]);
 
-  var stickyMenuOffset;
-  if (windowHeight < 900) {
-    stickyMenuOffset = 200;
-  } else {
-    stickyMenuOffset = 338;
-  }
+  var stickyMenuOffset = 338;
 
   var stickyMenu = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: stickyMenuOffset, duration: 60 })
     .setTween(stickyMenuTween)
@@ -210,23 +205,49 @@
   // .addIndicators({name: 'First main Winder'})
   .addTo(controller);
 
-  if (!isMobile) {
-    var firstText = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1900, offset: 250})
-                .setClassToggle('.extra-info-paragraph', 'in-viewport')
-                // .addIndicators({name: 'first text fade in'})
-                .addTo(controller);
-  
-    var firstTextPin = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 1780, offset: 500})
-      .setPin('.extra-info-paragraph')
-      // .addIndicators({name: 'first text pin'})
-      .addTo(controller);
+  var firstInfoParagraphInTween = new TimelineMax()
+    .add([TweenMax.fromTo('.extra-info-paragraph', 1, { opacity: 0 }, { opacity: 1, ease: Linear.easeNone, immediateRender: false })]);
+
+  var firstInfoParagraphOutTween = new TimelineMax()
+    .add([TweenMax.fromTo('.extra-info-paragraph', 1, { opacity: 1 }, { opacity: 0, ease: Linear.easeNone, immediateRender: false })]);
+
+  var firstTextOffset = 0;
+  var firstTextHeightAdjustmentStart = 1050;
+  if (window.innerHeight < firstTextHeightAdjustmentStart) {
+    firstTextOffset = firstTextHeightAdjustmentStart - window.innerHeight;
   }
 
-  // var firstTextParallax = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 1000, offset: 350})
-  //               .setTween('.extra-info-paragraph', {y: "-50%", ease: Linear.easeNone})
-  //               .addTo(controller);
+  var firstInfoParagraphIn = new ScrollMagic.Scene({
+    triggerElement: '.single-break',
+    triggerHook: 0,
+    duration: 200,
+    offset: -500 + firstTextOffset,
+  })
+    .setTween(firstInfoParagraphInTween)
+    // .addIndicators({name: 'first text in'})
+    .addTo(controller);
 
-  var lightOn = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 250})
+  var firstInfoParagraphOut = new ScrollMagic.Scene({
+    triggerElement: '.single-break',
+    triggerHook: 0,
+    duration: 200,
+    offset: 1000 + firstTextOffset,
+  })
+    .setTween(firstInfoParagraphOutTween)
+    // .addIndicators({name: 'first text out'})
+    .addTo(controller);
+
+  var firstTextPin = new ScrollMagic.Scene({
+    triggerElement: '.single-break',
+    triggerHook: 0,
+    duration: 1780,
+    offset: -200 + firstTextOffset,
+  })
+    .setPin('.extra-info-paragraph')
+    // .addIndicators({name: 'first text pin'})
+    .addTo(controller);
+
+  var lightOn = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 250})
                 .setClassToggle('.main-winder .winder-light', 'winder-light--visible')
                 .addTo(controller);
 
@@ -259,7 +280,7 @@
                           // .addIndicators({name: 'neki'})
                           .addTo(controller);
   
-  var secondTextPin = new ScrollMagic.Scene({triggerElement: '.start-second-info', duration: 1780})
+  var secondTextPin = new ScrollMagic.Scene({duration: 10000})
     .setPin('.section-second-info-paragraph')
     // .addIndicators({name: 'second text pin'})
     .addTo(controller);
@@ -272,10 +293,12 @@
 
   var secondInfoParagraphIn = new ScrollMagic.Scene({triggerElement: '.start-second-info', duration: 200})
     .setTween(secondInfoParagraphInTween)
+    // .addIndicators({name: 'second text in'})
     .addTo(controller);
 
   var secondInfoParagraphOut = new ScrollMagic.Scene({triggerElement: '.start-second-info', duration: 200, offset: 1540})
     .setTween(secondInfoParagraphOutTween)
+    // .addIndicators({name: 'second text out'})
     .addTo(controller);
 
   var standTween = new TimelineMax()
@@ -608,7 +631,7 @@
   var fifthImageRealWinderFadeInTween = new TimelineMax()
     .add(TweenMax.fromTo('.slider__5 .winder', { opacity: 0 }, { opacity: 1, immediateRender: false }));
 
-  var fifthImageRealWinderFadeIn = new ScrollMagic.Scene({triggerElement: ".single-break", duration: 20, offset: 20710})
+  var fifthImageRealWinderFadeIn = new ScrollMagic.Scene({triggerElement: '.single-break', duration: 20, offset: 20710})
     .setTween(fifthImageRealWinderFadeInTween)
     // .addIndicators({name: 'fifthImageRealWinderFadeIn'})
     .addTo(controller);

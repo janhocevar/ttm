@@ -32,9 +32,9 @@ body, html {
 header {
   position: fixed;
   z-index: 1000;
-  padding: 0 2.5rem;
   left: 0;
   right: 0;
+  padding: 0 40px;
 }
 
 header a {
@@ -132,12 +132,6 @@ header a {
 .first-section {
   background: #000;
   height: 100vh;
-}
-
-@media screen and (max-height: 900px) {
-  .first-section {
-    height: 95vh;
-  }
 }
 
 .first-section video {
@@ -346,11 +340,13 @@ header a {
   top: 150px;
   left: 10vw;
   opacity: 0;
-  transition: opacity 500ms ease-in;
 }
 
-.extra-info-paragraph.in-viewport {
-  opacity: 1;
+@media screen and (max-width: 1440px) {
+  .extra-info-paragraph {
+    font-size: 30px;
+    line-height: 34px;
+  }
 }
 
 .section-second-info {
@@ -363,7 +359,7 @@ header a {
 .section-second-info-paragraph {
   margin-top: 0;
   margin-bottom: 0;
-  position: fixed;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
@@ -372,10 +368,6 @@ header a {
   color: #000;
   left: 10vw;
   width: 20vw;
-}
-
-.section-second-info-paragraph.in-viewport {
-  opacity: 1; 
 }
 
 .section-stick {
@@ -508,7 +500,7 @@ header a {
 @media screen and (max-width: 1110px) {
   .extra-info-paragraph {
     left: 50%;
-    width: 80%;
+    width: 100%;
     transform: translateX(-50%);
     text-align: center;
   }
@@ -850,7 +842,7 @@ header a {
 
 .winder-bottom-description__1 {
   top: calc(50% + 400px);
-  left: calc(50% - 734px);
+  right: calc(50% + 334px);
 }
 
 .winder-bottom-description:after {
@@ -876,7 +868,7 @@ header a {
 
 .winder-bottom-description__3 {
   top: calc(50% + 166px);
-  left: calc(50% - 740px);
+  right: calc(50% + 337px);
 }
 
 .winder-bottom-description__3:after {
@@ -1004,12 +996,6 @@ header a {
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-height: 900px) {
-  .extra-info-paragraph {
-    top: 260px;
-  }
-}
-
 @media screen and (max-height: 800px) {
   .section-second-info-paragraph {
     font-size: 20px;
@@ -1017,9 +1003,18 @@ header a {
   }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1550px) {
   .winder-bottom-description {
-    top: 700px;
+    top: calc(50% + 200px);
+  }
+
+  .winder-bottom-description__1,
+  .winder-bottom-description__3 {
+    right: calc(50% + 250px);
+  }
+
+  .winder-bottom-description__2 {
+    left: calc(50% + 265px);
   }
 
   .winder-bottom-description:after {
@@ -1027,13 +1022,19 @@ header a {
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1320px) {
   .winder-bottom-description {
     width: 300px;
   }
 
   .app-mockup-text-section {
     padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .winder-bottom-description {
+    width: 200px;
   }
 }
 
@@ -1053,10 +1054,6 @@ header a {
 
   .hidden-mobile {
     display: none;
-  }
-
-  .stand-without-top-one {
-    transform: scale(1.6);
   }
 
   .mobile-winder-paragraph {
@@ -1126,6 +1123,7 @@ header a {
 
   .stand-without-top-one {
     width: auto;
+    transform: scale(1.6);
   }
 
   .stand-without-top-one-wrapper {
@@ -1225,7 +1223,7 @@ header a {
 
   .extra-info-paragraph {
     opacity: 1;
-    width: 95%;
+    padding: 0 40px;
     font-size: 30px;
   }
 
@@ -1378,6 +1376,11 @@ header a {
     z-index: 10000;
   }
 
+  .winder-light {
+    width: 86px;
+    height: 40px;
+  }
+
   .empty-section {
     z-index: 10001;
   }
@@ -1409,6 +1412,8 @@ header a {
     width: 509px;
     height: 515px;
     margin: 0;
+    position: relative;
+    z-index: 100;
   }
 
   .slider__image img {
@@ -1430,10 +1435,6 @@ header a {
     height: 1870px;
     overflow: hidden;
     margin-top: -940px;
-  }
-
-  .mobile-winder .winder-light {
-    display: none;
   }
 
   .mobile-winder .winder-stand,
@@ -1489,6 +1490,12 @@ header a {
   }
 }
 
+@media screen and (min-height: 800px) and (max-height: 1024px) {
+  .mobile-winder-section {
+    padding-top: 360px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .mobile-winder-section {
     padding-top: 240px;
@@ -1503,14 +1510,17 @@ header a {
     height: 305px;
   }
 
+  .winder-light {
+    width: 48px;
+    height: 23px;
+    top: 7px;
+    left: calc(50% - 1px);
+  }
+
   .winder-watch {
     top: -164px;
     left: -70px;
     transform: scale(0.26);
-  }
-
-  .mobile-winder .winder-light {
-    display: none;
   }
 
   .mobile-winder .winder-stand,
