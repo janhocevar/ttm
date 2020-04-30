@@ -170,9 +170,15 @@
 
   var stickyMenuOffset = 338;
 
+  if (window.innerHeight < 800) {
+    stickyMenuOffset = -100;
+  } else if (window.innerHeight < 920) {
+    stickyMenuOffset = 100; 
+  }
+
   var stickyMenu = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: stickyMenuOffset, duration: 60 })
     .setTween(stickyMenuTween)
-    // .addIndicators({name: 'Sticky Menu'})
+    .addIndicators({name: 'Sticky Menu'})
     .addTo(controller);
 
   var stickyMenuLogoTween = new TimelineMax()
@@ -275,7 +281,15 @@
                             .addTo(controller);
 
   var winderStopPositionDuration = 2950;
-  var winderStopPosition = new ScrollMagic.Scene({triggerElement: '.start-parallax-winder-stop-section', duration: winderStopPositionDuration})
+  var firstWinderOffset = 0;
+
+  if (window.innerHeight <= 760) {
+    firstWinderOffset = -60;
+  } else if (window.innerHeight <= 800) {
+    firstWinderOffset = -20;
+  }
+
+  var winderStopPosition = new ScrollMagic.Scene({triggerElement: '.start-parallax-winder-stop-section', duration: winderStopPositionDuration, offset: firstWinderOffset})
                           .setPin('.main-winder')
                           // .addIndicators({name: 'neki'})
                           .addTo(controller);

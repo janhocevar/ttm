@@ -31,7 +31,7 @@ body, html {
 
 header {
   position: fixed;
-  z-index: 1000;
+  z-index: 10000000;
   left: 0;
   right: 0;
   padding: 0 40px;
@@ -342,10 +342,43 @@ header a {
   opacity: 0;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1440px), (max-height: 840px) {
   .extra-info-paragraph {
     font-size: 30px;
     line-height: 34px;
+  }
+}
+
+@media screen and (max-height: 840px) {
+  .extra-info-paragraph {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-height: 780px) {
+  .extra-info-paragraph {
+    padding-top: 80px;
+    font-size: 24px;
+    line-height: 30px;
+    width: 400px;
+  }
+}
+
+@media screen and (max-height: 740px) {
+  .extra-info-paragraph {
+    padding-top: 120px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .extra-info-paragraph {
+    padding-top: 160px;
+  }
+}
+
+@media screen and (max-height: 660px) {
+  .extra-info-paragraph {
+    padding-top: 200px;
   }
 }
 
