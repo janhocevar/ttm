@@ -850,6 +850,11 @@
     // .addIndicators({name: 'Original fade out In'})
     .addTo(controller);
 
+  var bottomWinderOriginalFadeOut = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 26500})
+    .setClassToggle('.slider__5', 'slider__5--hide-overflow')
+    // .addIndicators({name: 'Original fade out In'})
+    .addTo(controller);
+
   var bottomWinderScaleUp = new ScrollMagic.Scene({triggerElement: '.single-break', offset: 26000, duration: 550})
     .setTween(bottomWinderScaleUpTween)
     // .addIndicators({name: 'winder scale up'})

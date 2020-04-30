@@ -263,92 +263,14 @@
     // .addIndicators({name: 'bottom description #3 winder opacity out'})
     .addTo(controller);
 
-  
-
-
-
-
-
   /**
    * Bottom Texts
    */
-  var mockupAppTween = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 3500, offset: 300})
+  var mockupAppTween = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 2000, offset: 500})
     .setPin('.app-mockup')
     // .addIndicators({name: 'mockup scroll'})
     .addTo(controller);
 
   var appMockupsDuration = 800;
-
-  /**
-   * first text
-   */
-  // var appMockupFirstTextPin = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: appMockupsDuration, offset: 650})
-  //   .setPin('.app-mockup-text-section--first')
-  //   .addIndicators({name: 'stick first text'})
-  //   .addTo(controller);
-
-  // var appMockupFirstTextTween = new TimelineMax()
-  //   .add(TweenMax.fromTo('.app-mockup-text-section--first', { opacity: 0 }, { opacity: 1, immediateRender: false }));
-  
-  // var appMockupFirstText = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--first', duration: 150, offset: 650, ease: Linear.easeNone })
-  //   .setTween(appMockupFirstTextTween)
-  //   .addIndicators({name: 'first text visibility'})
-  //   .addTo(controller);
-
-  // var appMockupFirstTextTweenOut = new TimelineMax()
-  //   .add(TweenMax.fromTo('.app-mockup-text-section--first', { opacity: 1 }, { opacity: 0, immediateRender: false }));
-  
-  // var appMockupFirstTextOut = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--first', duration: 150, offset: 750, ease: Linear.easeNone })
-  //   .setTween(appMockupFirstTextTweenOut)
-  //   .addIndicators({name: 'first text visibility out'})
-  //   .addTo(controller);
-
-  // /**
-  //  * second text
-  //  */
-  // var appMockupFirstTextPin2 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: appMockupsDuration, offset: 1500})
-  //     .setPin('.app-mockup-text-section--second')
-  //     .addIndicators({name: 'stick second text'})
-  //     .addTo(controller);
-
-  // var appMockupFirstTextTween2 = new TimelineMax()
-  //   .add(TweenMax.fromTo('.app-mockup-text-section--second', { opacity: 0 }, { opacity: 1, immediateRender: false }));
-  
-  // var appMockupFirstText2 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--second', duration: 150, offset: 150, ease: Linear.easeNone })
-  //   .setTween(appMockupFirstTextTween2)
-  //   .addIndicators({name: 'second text visibility'})
-  //   .addTo(controller);
-
-  // var appMockupFirstTextTweenOut2 = new TimelineMax()
-  //   .add(TweenMax.fromTo('.app-mockup-text-section--second', { opacity: 1 }, { opacity: 0, immediateRender: false }));
-  
-  // var appMockupFirstTextOut2 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--second', duration: 150, offset: 737, ease: Linear.easeNone })
-  //   .setTween(appMockupFirstTextTweenOut2)
-  //   .addIndicators({name: 'second text visibility out'})
-  //   .addTo(controller);
-
-  // /**
-  //  * third text
-  //  */
-  // var appMockupFirstTextPin3 = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: appMockupsDuration, offset: 2300})
-  //     .setPin('.app-mockup-text-section--third')
-  //     .addIndicators({name: 'stick third text'})
-  //     .addTo(controller);
-
-  // var appMockupFirstTextTween3 = new TimelineMax()
-  //   .add(TweenMax.fromTo('.app-mockup-text-section--third', { opacity: 0 }, { opacity: 1 }));
-  
-  // var appMockupFirstText3 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--third', duration: 150, offset: 150, ease: Linear.easeNone })
-  //   .setTween(appMockupFirstTextTween3)
-  //   .addIndicators({name: 'third text visibility'})
-  //   .addTo(controller);
-
-  // var appMockupFirstTextTweenOut3 = new TimelineMax()
-  //   .add(TweenMax.fromTo('.app-mockup-text-section--third', { opacity: 1 }, { opacity: 0, immediateRender: false }));
-  
-  // var appMockupFirstTextOut3 = new ScrollMagic.Scene({triggerElement: '.app-mockup-text-section--third', duration: 150, offset: 700, ease: Linear.easeNone })
-  //   .setTween(appMockupFirstTextTweenOut3)
-  //   .addIndicators({name: 'third text visibility out'})
-  //   .addTo(controller);
 
 })();

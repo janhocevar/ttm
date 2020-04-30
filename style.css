@@ -410,28 +410,49 @@ header a {
 }
 
 .app-mockup {
+  position: absolute;
+  top: 300px;
+  z-index: 20;
+  width: 30vw;
+  height: 1900px;
+  right: 0;
+  overflow: hidden;
+}
+
+.app-mockup--inner {
   background: url('./TM-app-mockup.png');
   background-size: cover;
-  width: 1213px;
-  height: 2048px;
+  width: 937px;
+  height: 1900px;
   position: absolute;
-  top: 379px;
-  right: -25vw;
-  z-index: 20;
+  left: 0;
+  top: 0;
 }
 
 .slick-prev:before, .slick-next:before {
   color: #000 !important;
 }
 
+footer {
+  height: 30vh;
+  width: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #9698a3;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
 .app-mockup-text-section {
   border-top: 1px solid #FFF;
   position: absolute;
-  left: 140px;
-  width: calc(100% - 140px - 1213px + 20vw);
-  padding-right: 200px;
-  opacity: 0;
+  width: calc(100% - 30vw - 140px);
   padding-top: 40px;
+  padding-right: 40px;
+  right: 30vw;
+  opacity: 0;
   z-index: 10;
 }
 
@@ -463,8 +484,12 @@ header a {
   line-height: 30px;
 }
 
+.slider__5--hide-overflow {
+  overflow: hidden;
+}
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .app-mockup {
+  .app-mockup--inner {
     background-image: url('./TM-app-mockup@2x.png');
   }
 }
@@ -476,9 +501,8 @@ header a {
     left: 7vh;
   }
 
-  .app-mockup {
-    width: 1150px;
-    height: 1798px;
+  .app-mockup-text-section {
+    width: calc(100% - 30vw - 50px);
   }
 
   .app-mockup-text-section__title {
@@ -488,12 +512,7 @@ header a {
 
   .app-mockup-text-section__text {
     font-size: 20px;
-    line-height: 20px;
-  }
-
-  .app-mockup-text-section {
-    left: 70px;
-    width: calc(100% - 140px - 970px + 70px + 20vw);
+    line-height: 30px;
   }
 }
 
@@ -503,16 +522,6 @@ header a {
     width: 100%;
     transform: translateX(-50%);
     text-align: center;
-  }
-
-  .app-mockup {
-    width: 727px;
-    height: 1228px;
-    top: 20vh;
-  }
-
-  .app-mockup-text-section {
-    width: calc(100% - 140px - 727px + 70px + 20vw);
   }
 
   .app-mockup-text-section--first {
@@ -543,21 +552,6 @@ header a {
     line-height: 50px;
   }
 
-  .app-mockup {
-    width: 485px;
-    height: 819px;
-    top: 10vh;
-    right: -15vw;
-  }
-
-  .app-mockup-text-section {
-    padding-top: 20px;
-  }
-
-  .app-mockup-text-section {
-    width: calc(100% - 140px - 485px + 70px + 10vw);
-  }
-
   .app-mockup-text-section--first {
     top: 20vh;
   }
@@ -586,19 +580,28 @@ header a {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
   .app-mockup {
+    right: auto;
+    left: calc(100% - 200px);
+  }
+
+  .app-mockup,
+  .app-mockup--inner {
     width: 363px;
-    height: 614px;
+    height: 735px;
+  }
+
+  .app-mockup-section {
+    height: 2500px;
+    padding-top: 600px;
   }
 
   .app-mockup-text-section {
     padding-top: 20px;
-    left: 40px;
   }
 
   .app-mockup-text-section {
-    width: calc(100% - 140px - 363px + 40px + 10vw);
     opacity: 1;
     border-top: none;
   }
@@ -626,40 +629,30 @@ header a {
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 600px) {
   .app-mockup-text-section {
-    width: calc(100% - 140px - 250px + 40px + 10vw);
-  }
-
-  .app-mockup-section {
-    height: 100vh;
+    width: 50%;
+    right: 50%;
+    padding: 0 16px;
+    left: 0;
   }
 }
 
 @media screen and (max-width: 550px) {
   .app-mockup {
-    right: -25vw;
+    right: auto;
+    left: calc(100% - 150px);
   }
 
-  .app-mockup-text-section {
-    left: 20px;
-    width: calc(100% - 140px - 200px + 40px + 10vw);
+  .app-mockup,
+  .app-mockup--inner {
+    width: 250px;
+    height: 505px;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .app-mockup {
-    right: -45vw;
-  }
-
-  .app-mockup-text-section {
-    width: calc(100% - 140px - 140px + 40px + 10vw);
-  }
-
-  .app-mockup-section {
-    height: 2200px;
-    padding-top: 600px;
-  }
+  
 }
 
 .living-room {
@@ -1026,10 +1019,6 @@ header a {
   .winder-bottom-description {
     width: 300px;
   }
-
-  .app-mockup-text-section {
-    padding-top: 0;
-  }
 }
 
 @media screen and (max-width: 1220px) {
@@ -1339,6 +1328,7 @@ header a {
     overflow: hidden;
     height: auto;
     padding: 0 10vw;
+    z-index: 10000;
   }
 
   .first-section video {
@@ -1445,10 +1435,10 @@ header a {
   }
 
   .winder-watch {
-    top: -125px;
-    left: -26px;
+    top: -69px;
+    left: 34px;
     z-index: 10;
-    transform: scale(0.33);
+    transform: scale(0.41);
   }
 
   .mobile-winder .winder-winder,
