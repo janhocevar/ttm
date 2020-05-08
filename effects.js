@@ -3,7 +3,7 @@
   var windowWidth = document.body.clientWidth;
   var windowHeight = document.body.clientHeight;
 
-  var mobileWidthBreakPoint = 770;
+  var mobileWidthBreakPoint = 810;
   var isMobile = windowWidth <= mobileWidthBreakPoint;
 
   var animateToSectionButtons = document.querySelectorAll('.navigate-to-section');
@@ -178,7 +178,7 @@
 
   var stickyMenu = new ScrollMagic.Scene({ triggerElement: '.section-second-info', offset: stickyMenuOffset, duration: 60 })
     .setTween(stickyMenuTween)
-    .addIndicators({name: 'Sticky Menu'})
+    // .addIndicators({name: 'Sticky Menu'})
     .addTo(controller);
 
   var stickyMenuLogoTween = new TimelineMax()

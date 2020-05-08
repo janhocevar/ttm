@@ -373,6 +373,7 @@ header a {
 @media screen and (max-height: 700px) {
   .extra-info-paragraph {
     padding-top: 160px;
+    font-size: 20px;
   }
 }
 
@@ -409,6 +410,7 @@ header a {
   opacity: 1;
   padding-top: 1470px;
   margin-top: 220px;
+  overflow: hidden;
 }
 
 .section-stick--hidden .stand-without-top-one {
@@ -549,28 +551,12 @@ footer {
   }
 }
 
-@media screen and (max-width: 1110px) {
+@media screen and (max-device-width: 1024px) {
   .extra-info-paragraph {
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
+    position: absolute;
+    left: auto;
     text-align: center;
-  }
-
-  .app-mockup-text-section--first {
-    top: 40vh;
-  }
-
-  .app-mockup-text-section--second {
-    top: 80vh;
-  }
-
-  .app-mockup-text-section--third {
-    top: 120vh;
-  }
-
-  .app-mockup-section {
-    height: 180vh;
+    width: 100%;
   }
 }
 
@@ -583,18 +569,6 @@ footer {
     width: 80%;
     font-size: 50px;
     line-height: 50px;
-  }
-
-  .app-mockup-text-section--first {
-    top: 20vh;
-  }
-
-  .app-mockup-text-section--second {
-    top: 50vh;
-  }
-
-  .app-mockup-text-section--third {
-    top: 80vh;
   }
 
   .app-mockup-text-section__title {
@@ -613,7 +587,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 810px) {
   .app-mockup {
     right: auto;
     left: calc(100% - 200px);
@@ -639,35 +613,14 @@ footer {
     border-top: none;
   }
 
-  .app-mockup-text-section--first {
-    top: 700px;
-  }
-
   .app-mockup-text-section__title {
     font-size: 24px;
     line-height: 24px;
   }
 
-  .app-mockup-text-section--second {
-    top: 1300px;
-  }
-
-  .app-mockup-text-section--third {
-    top: 1900px;
-  }
-
   .app-mockup-text-section__text {
     font-size: 16px;
     line-height: 16px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .app-mockup-text-section {
-    width: 50%;
-    right: 50%;
-    padding: 0 16px;
-    left: 0;
   }
 }
 
@@ -682,20 +635,6 @@ footer {
     width: 250px;
     height: 505px;
   }
-}
-
-@media screen and (max-width: 420px) {
-  
-}
-
-.living-room {
-  height: 200vh;
-  position: sticky;
-  top: 0;
-  background: url('./living-room.jpeg');
-  background-size: contain;
-  transform: translateY(-50vh);
-  position: relative;  
 }
 
 .start-parallax-winder-section {
@@ -721,10 +660,6 @@ footer {
 .remove-top-stand-section {
   transform: translateY(2200px);
 }
-
-/* .display-products-section {
-  transform: translateY(-100px);
-} */
 
 .slider-descriptions {
   top: 50%;
@@ -986,11 +921,6 @@ footer {
   border-bottom: none;
 }
 
-/* .slider__5 .winder-stand {
-  transform: scale(.97) translateZ(-20px);
-  opacity: 0;
-} */
-
 .winder-watch {
   background: url('./watch.png');
   width: 440px;
@@ -1024,8 +954,10 @@ footer {
 
 @media screen and (max-height: 800px) {
   .section-second-info-paragraph {
-    font-size: 20px;
-    left: 5vw;
+    font-size: 18px;
+    line-height: 27px;
+    left: 2vw;
+    padding-top: 30px;
   }
 }
 
@@ -1068,7 +1000,7 @@ footer {
   display: none;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 810px) {
   .visible-mobile {
     display: block;
     position: relative;
@@ -1092,7 +1024,7 @@ footer {
     position: absolute;
     top: 500px;
     left: 0;
-    padding: 0 10vw;
+    padding: 0 40px;
     font-size: 20px;
     line-height: 32px;
     color: rgba(255, 255, 255, .8);
@@ -1101,6 +1033,7 @@ footer {
   .empty-section {
     height: auto;
     margin-top: 0;
+    padding-top: 50px;
   }
 
   .section-stick {
@@ -1131,7 +1064,7 @@ footer {
     width: auto;
     height: auto;
     padding: 0 10vw;
-    margin-top: -1100px;
+    margin-top: -1250px;
     transform: none;
   }
 
@@ -1145,12 +1078,13 @@ footer {
 
   .stand-without-top-one {
     width: auto;
-    transform: scale(1.6);
+    transform: scale(1.7);
   }
 
   .stand-without-top-one-wrapper {
     overflow: hidden;
-    margin-top: -170px;
+    margin-top: -460px;
+    padding-top: 730px;
   }
 
   .slider__image {
@@ -1159,9 +1093,9 @@ footer {
   }
 
   .top-one-empty {
-    top: 335px;
-    width: 156px;
-    height: 156px;
+    top: -105px;
+    width: 262px;
+    height: 269px;
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -1253,10 +1187,6 @@ footer {
     padding-top: 0;
   }
 
-  video {
-    max-width: 100%;
-  }
-
   .winder-bottom-description {
     transform: translate(0, 0);
     width: auto;
@@ -1274,11 +1204,6 @@ footer {
 
   .winder-bottom-description .winder {
     transform: translateX(-50%);
-  }
-
-  header {
-    padding: 0 20px;
-    background: #000;
   }
 
   .open-mobile-menu {
@@ -1376,6 +1301,7 @@ footer {
 
   .banner-section h1 {
     font-size: 40px;
+    padding-top: 40px;
   }
 
   .winder {
@@ -1393,7 +1319,11 @@ footer {
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 810px) {
+  header {
+    padding: 0 20px;
+  }
+
   .mobile-winder--bottom-wrapper {
     position: relative;
     z-index: 10000;
@@ -1455,7 +1385,7 @@ footer {
 
   .mobile-winder-section {
     padding-top: 280px;
-    height: 1870px;
+    height: 2060px;
     overflow: hidden;
     margin-top: -940px;
   }
@@ -1520,8 +1450,52 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
+  .slider-descriptions {
+    margin-top: -1100px;
+  }
+
+  .stand-without-top-one-wrapper {
+    margin-top: -170px;
+    padding-top: 0;
+  }
+
+  .stand-without-top-one {
+    transform: scale(1.6);
+  }
+
+  .first-section video {
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: initial;
+  }
+
+  .header-inner--black .header-inner {
+    border-bottom: 1px solid #FFF;
+  }
+
+  .top-one-empty {
+    top: 335px;
+    width: 156px;
+    height: 156px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .first-video-wrapper {
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
+
   .mobile-winder-section {
     padding-top: 240px;
+    height: 1870px;
   }
 
   .stand-without-top-one-wrapper {

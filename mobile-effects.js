@@ -2,7 +2,7 @@
   var windowWidth = document.body.clientWidth;
   var windowHeight = document.body.clientHeight;
 
-  var mobileWidthBreakPoint = 770;
+  var mobileWidthBreakPoint = 810;
   var isMobile = windowWidth <= mobileWidthBreakPoint;
 
   if (!isMobile) {
@@ -30,6 +30,14 @@
   if (window.innerHeight > mainWinderOffsetAdjustmentStart) {
     mainWinderOffset = window.innerHeight - mainWinderOffsetAdjustmentStart;
   }
+
+  /**
+   * Sticky menu
+   */
+  var stickyMenuBlackClass = new ScrollMagic.Scene({ offset: window.innerHeight * 2 + 20 })
+    .setClassToggle('header', 'header-inner--black')
+    // .addIndicators({name: 'Sticky Menu Black BG'})
+    .addTo(controller);
 
   /**
    * Top Winder
@@ -61,10 +69,22 @@
     // .addIndicators({name: 'Lights On'})
     .addTo(controller);
 
+  var winder2Offset = 1700;
+
+  if (windowWidth < 550) {
+    winder2Offset = 1180;
+  }
+
+  var winder2Duration = 717;
+
+  if (windowWidth < 550) {
+    winder2Duration = 900;
+  }
+
   /**
    * Top Winder Second Stop
    */
-  var winder2 = new ScrollMagic.Scene({triggerElement: ".mobile-winder-section", duration: 900, offset: 1180 + mainWinderOffset})
+  var winder2 = new ScrollMagic.Scene({triggerElement: ".mobile-winder-section", duration: winder2Duration, offset: 1180 + mainWinderOffset})
     .setPin('.mobile-winder-wrapper')
     // .addIndicators({name: 'Top Winder Second Stop'})
     .addTo(controller);
@@ -84,7 +104,13 @@
       TweenMax.fromTo('.mobile-winder-paragraph', 2, { opacity: 1 }, { opacity: 0, ease: Linear.easeNone, immediateRender: false })
     ]);
 
-  var textFadeOut = new ScrollMagic.Scene({triggerElement: '.mobile-winder-section', duration: 100, offset: 1500})
+  var textFadeOutOffset = 1300;
+
+  if (windowWidth < 550) {
+    textFadeOutOffset = 1500;
+  }
+
+  var textFadeOut = new ScrollMagic.Scene({triggerElement: '.mobile-winder-section', duration: 100, offset: textFadeOutOffset})
     .setTween(textFadeOutTween)
     // .addIndicators({name: 'Fade Out Text'})
     .addTo(controller);
@@ -104,13 +130,26 @@
     // .addIndicators({name: 'rotation'})
     .addTo(controller);
 
+  var standRemoveScale = 1.7;
+
+  if (windowWidth < 550) {
+    standRemoveScale = 1.6;
+  }
+
   var standRemoveTween = new TimelineMax()
     .add([
-      TweenMax.fromTo('.stand-without-top-one', 1, { scale: 1.6 }, { scale: .25, ease: Linear.easeNone, immediateRender: false })
+      TweenMax.fromTo('.stand-without-top-one', 1, { scale: standRemoveScale }, { scale: .25, ease: Linear.easeNone, immediateRender: false })
     ]);
 
-  var removeTopSection = new ScrollMagic.Scene({triggerElement: '.banner-section', offset: 2800, duration: 500})
+  var removeTopSectionOffset = 3500;
+
+  if (windowWidth < 550) {
+    removeTopSectionOffset = 2800;
+  }
+
+  var removeTopSection = new ScrollMagic.Scene({triggerElement: '.banner-section', offset: removeTopSectionOffset, duration: 500})
     .setTween(standRemoveTween)
+    // .addIndicators({name: 'TWEEN IT'})
     .addTo(controller);
     
   var textFadeOutTween = new TimelineMax()
@@ -266,7 +305,12 @@
   /**
    * Bottom Texts
    */
-  var mockupAppTween = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 2000, offset: 500})
+  var mockupAppTweenOffset = 600;
+  if (windowWidth < 550) {
+    mockupAppTweenOffset = 500;
+  }
+
+  var mockupAppTween = new ScrollMagic.Scene({triggerElement: ".app-mockup-section", duration: 2000, offset: mockupAppTweenOffset})
     .setPin('.app-mockup')
     // .addIndicators({name: 'mockup scroll'})
     .addTo(controller);
